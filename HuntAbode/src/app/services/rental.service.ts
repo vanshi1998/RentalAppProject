@@ -38,7 +38,7 @@ export class RentalService {
 
   addPropertyCertain(property: any, email:string){
     console.log('Check : ', property)
-    return this.http.post(baseUrl+'home/email/'+email,
+    return this.http.put(baseUrl+'home/email/'+email,
       property,{observe: 'response'})
   }
 
