@@ -16,6 +16,13 @@ import { OwnerHomeComponent } from './components/owner-home/owner-home.component
 import { OwnerDashboardComponent } from './components/owner-dashboard/owner-dashboard.component';
 import { AllPropertiesComponent } from './components/all-properties/all-properties.component';
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 const appRoutes: Routes = [
@@ -27,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'allProperties' , component: AllPropertiesComponent},
   { path: 'bookedProperties' , component: BookedPropertyComponent},
   { path: 'ownerDashboard' , component: OwnerDashboardComponent},
+ 
 ];
 
 @NgModule({
@@ -47,7 +55,18 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
