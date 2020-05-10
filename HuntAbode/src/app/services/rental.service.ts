@@ -71,6 +71,33 @@ export class RentalService {
     return this.http.get(baseUrl + 'home/type/' + type)
   }
 
+  addTenant(tenant: any, email: string){
+    return this.http.post(baseUrl+ 'tenant/email/' + email,
+    tenant, {observe: 'response'})
+  }
+
+  addInterestedHome(home : any, email: string, homeid: number){
+      return this.http.put(baseUrl+ 'tenant/interestedHome/' + email + '/' + homeid,
+      home, {observe : 'response'})
+  }
+
+  fetchAllTenants(){
+    return this.http.get(baseUrl+ 'tenant')
+  }
+
+  fetchInterestedHomes(email: string){
+    return this.http.get(baseUrl + 'tenant/viewInterestedHomes/' + email);
+  }
+
+  fetchAllInterestedHomes(){
+    return this.http.get(baseUrl + 'interestedHomes')
+  }
+
+  fetchInterestedTenants(homeid : number){
+    return this.http.get(baseUrl + 'home/interestedTenants/' + homeid)
+  }
+
+
 }
 
 
