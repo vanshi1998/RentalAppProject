@@ -120,6 +120,51 @@ public class HomeController {
 		return re;
 
 	}
+
+	//For tenant and interested Homes
+	
+	@PostMapping("/tenant/email/{email}")
+	public ResponseEntity<Void> addTenant(@RequestBody HomeTenant homeTenant,@PathVariable("email") String email){
+		
+		homeService.addHomeTenant(homeTenant,email);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
+		return re;
+	} 
+	
+	//put mapping to add the interested home of particular tenant
+	
+	@PutMapping("/tenant/interestedHome/{email}/{homeid}")
+	public ResponseEntity<Void> addInterestHome(@PathVariable("email") String email,@PathVariable("homeid") int homeid) {
+		homeService.addHomeOfInterest(email,homeid);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
+		return re;
+
+	}
+	
+	@GetMapping("/tenant")
+	public List<HomeTenant> findAllHmeTenants(){
+		return homeService.findAllHomeTenants();
+	}
+	
+	@GetMapping("/tenant/viewInterestedHomes/{email}")
+	public List<InterestedHome> viewInterestedHomes(@PathVariable("email") String email)
+	{
+		return homeService.findInterestedHomeOfTenant(email);
+		
+	}
+	
+	@GetMapping("/interestedHomes")
+	public List<InterestedHome> findAllHomesOfInterest(){
+		return homeService.findAllInterestedHomes();
+	}
+	
+	@GetMapping("/home/interestedTenants/{homeid}")
+	public List<HomeTenant> displayInterestedTenantsOfHome(@PathVariable("homeid") int homeid)
+	{
+		return homeService.interestedTenantsOfHome(homeid);
+	}
+	
+	
 	
 	
 	

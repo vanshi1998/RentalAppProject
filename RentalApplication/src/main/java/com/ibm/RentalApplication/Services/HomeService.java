@@ -19,6 +19,12 @@ public class HomeService {
 	
 	@Autowired
 	HomeOwnerRepository homeOwnerRepository;
+
+	@Autowired
+	HomeTenantRepository homeTenantRepository;
+	
+	@Autowired
+	InterestedHomeRepository interestedHomeRepository;	
 	
 	@Transactional
 	public void addHome(Home home,String email) {
@@ -108,5 +114,73 @@ public class HomeService {
     	home.setSecurityDeposit(security);
 		
 	}
+
+	public HomeTenant addHomeTenant(HomeTenant homeTenant,String email) {
+		HomeTenant homeTenant1=homeTenantRepository.findByEmail(email);
+		if(homeTenant1==null) {
+			return homeTenantRepository.save(homeTenant);
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
+    //adding home of interest
+    
+    @Transactional
+    public void addHomeOfInterest(String email,int homeid)
+    {
+    	HomeTenant homeTenant2=homeTenantRepository.findByEmail(email);
+    	int tenantid=homeTenant2.getId();
+    	//Home reqHome=homeRepository.findById(homeid);
+    	System.out.printf("Interested home of tenant are before:-",homeTenant2.getHomesOfInterest());
+    	List<InterestedHome> interestedHomes=homeTenant2.getHomesOfInterest();
+    	InterestedHome intHome = new InterestedHome();
+    	intHome.setHomeId(homeid);
+    	intHome.setTenantId(tenantid);
+    	System.out.println("Interested Home to be added="+intHome);
+    	interestedHomes.add(intHome);
+    	System.out.println("Interested home of tenant after-"+interestedHomes);
+    	homeTenant2.setHomesOfInterest(interestedHomes);
+    	System.out.println("Final updation done"+homeTenant2.getHomesOfInterest());
+    }
+
+
+	public List<HomeTenant> findAllHomeTenants() {
+		List<HomeTenant> homeTenants =  homeTenantRepository.findAll();
+		System.out.println(homeTenants);
+		return homeTenants;
+	}
+    
+	public List<InterestedHome> findInterestedHomeOfTenant(String email)
+	{
+		HomeTenant tenant=homeTenantRepository.findByEmail(email);
+		System.out.println("Interested homes are="+tenant.getHomesOfInterest());
+		return tenant.getHomesOfInterest();
+	}
+	
+	public List<InterestedHome> findAllInterestedHomes() {
+		List<InterestedHome> interestedHomes =  interestedHomeRepository.findAll();
+		System.out.println(interestedHomes);
+		return interestedHomes;
+	}
+    
+	public List<HomeTenant> interestedTenantsOfHome(int homeid)
+	{
+		List<InterestedHome> intHomes4=interestedHomeRepository.findByHomeId(homeid);
+		List<HomeTenant> intTenants=new LinkedList<>();;
+		for(InterestedHome intHome :intHomes4)
+		{
+			int tenantId=intHome.getTenantId();
+			HomeTenant te=homeTenantRepository.findById(tenantId);
+			intTenants.add(te);
+		}
+		
+		return intTenants;
+		
+	}
+	
+	
 	
 }
