@@ -9,6 +9,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import {AddPropertyComponent } from './components/add-property/add-property.component';
+import {ViewPropertyComponent} from './components/view-property/view-property.component';
+import {ViewPropertyOwnerComponent} from './components/view-property-owner/view-property-owner.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -17,7 +19,9 @@ const routes: Routes =[
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',          component: LoginComponent },
-    { path: '', redirectTo: 'add-property', pathMatch: 'full' }
+    { path: 'view-property', component: ViewPropertyComponent},
+    { path: 'view-property-owner', component: ViewPropertyOwnerComponent},
+    { path: '', redirectTo: 'view-property-owner', pathMatch: 'full' }
 ];
 
 @NgModule({

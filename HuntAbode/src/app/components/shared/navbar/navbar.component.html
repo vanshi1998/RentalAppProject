@@ -1,7 +1,8 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
     <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-      <img src="./assets/img/brand/argon-white.png">
+      <!-- <img src="./assets/img/brand/argon-white.png"> -->
+      <h3 style="color: whitesmoke; font-weight: bolder;">Home Abode</h3>
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
@@ -30,6 +31,9 @@
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text">Components</span>
           </a>
+
+          
+
           <div class="dropdown-menu-xl dropdown-menu" >
             <div class="dropdown-menu-inner">
               <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
@@ -76,6 +80,8 @@
         </li>
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        
+        
         <li class="nav-item">
           <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
             <i class="fa fa-facebook-square"></i>
@@ -100,14 +106,14 @@
             <span class="nav-link-inner--text d-lg-none">Github</span>
           </a>
         </li>
-        <li class="nav-item d-none d-lg-block ml-lg-4">
+        <!-- <li class="nav-item d-none d-lg-block ml-lg-4">
           <a href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-navbar" target="_blank" class="btn btn-neutral btn-icon">
             <span class="btn-inner--icon">
               <i class="fa fa-cloud-download mr-2"></i>
             </span>
             <span class="nav-link-inner--text">Download</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

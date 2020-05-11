@@ -15,6 +15,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { HomeModule } from './components/home/home.module';
 import { LoginComponent } from './components/login/login.component';
+import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './components/login/login.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    ViewPropertyOwnerComponent
   ],
   imports: [
     BrowserModule,
