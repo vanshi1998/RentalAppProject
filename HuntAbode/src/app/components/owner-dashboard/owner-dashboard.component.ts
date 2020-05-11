@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
 })
 export class OwnerDashboardComponent {
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() { }
 
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  /*cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
@@ -30,7 +30,7 @@ export class OwnerDashboardComponent {
         { title: 'Card 4', cols: 1, rows: 1 }
       ];
     })
-  );
+  );*/
 
 }
 
