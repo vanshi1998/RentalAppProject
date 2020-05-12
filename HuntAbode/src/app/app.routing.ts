@@ -12,9 +12,11 @@ import { AddPropertyComponent } from './components/add-property/add-property.com
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
+import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-property', component: AddPropertyComponent },
@@ -27,8 +29,9 @@ const routes: Routes = [
   { path: 'edit-property', component: EditPropertyComponent},
   { path: 'edit-property-images', component: EditPropertyImagesComponent},
   { path: 'add-property',             component: AddPropertyComponent },
+  { path: 'tenant-info', component:TenantInfoComponent },
   { path: 'booked-property',             component: BookedPropertyComponent },
-  { path: '', redirectTo: 'booked-property', pathMatch: 'full' }
+  { path: '', redirectTo: 'tenant-info', pathMatch: 'full' }
 ];
 
 @NgModule({
