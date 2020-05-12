@@ -19,6 +19,8 @@ import {AddPropertyComponent } from './components/add-property/add-property.comp
 import { HomeModule } from './components/home/home.module';
 import { LoginComponent } from './components/login/login.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
+import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { ViewPropertyOwnerComponent } from './components/view-property-owner/vie
     FooterComponent,
     LoginComponent,
     ViewPropertyOwnerComponent,
+    EditPropertyComponent,
+    EditPropertyImagesComponent,
     BookedPropertyComponent,
     AddPropertyComponent
-
+    
   ],
   imports: [
     BrowserModule,
