@@ -25,8 +25,6 @@ export class TenantInfoComponent implements OnInit {
 
 }
  
-onApprove(tenants:any){
-  console.log("Your meeting has been fixed");
-}  
+
 }
           
