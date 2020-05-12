@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ibm.RentalApplication.Entities.Home;
 import com.ibm.RentalApplication.Entities.HomeOwner;
-
+import com.ibm.RentalApplication.Entities.HomeTenant;
 import com.ibm.RentalApplication.Services.HomeService;
 
 
@@ -53,6 +53,11 @@ public class OwnerController {
 		System.out.println("All HomeOwners"+homeService.findAllHomeOwner());
 		return homeService.findAllHomeOwner();
 		
+	}
+	
+	@GetMapping("/owner/email/{email}")
+	public HomeOwner findOwnerByEmail(@PathVariable("email") String email){
+		return homeService.findOwnerByEmail(email);
 	}
 	
 	@RequestMapping(path="/home/delete/{id}" , method=RequestMethod.DELETE)

@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Home } from "src/app/models/home";
 import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 import { RentalService } from "src/app/services/rental.service";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-property',
@@ -15,7 +16,7 @@ export class AddPropertyComponent implements OnInit {
    homeForm: FormGroup;
    email:string="ikshita@gmail.com"
    
-  constructor(private fb: FormBuilder,private rentalService:RentalService) { }
+  constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
      this.homeForm = this.fb.group({
@@ -43,6 +44,14 @@ export class AddPropertyComponent implements OnInit {
   .subscribe((res:any)=> {
     console.log("result",res); 
    })
+
+   setTimeout(() => { this.dashboard();  }, 1000);
+
+   
  }
 
+ dashboard()
+ {
+  this.router.navigate(["user-profile"]);
+ }
 }

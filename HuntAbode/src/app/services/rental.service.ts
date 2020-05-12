@@ -42,6 +42,11 @@ export class RentalService {
 
   }
 
+  fetchOwnerByEmail(email:string)
+  {
+    return this.http.get(baseUrl + 'owner/email/' + email)
+  }
+  
   addPropertyCertain(property: any, email:string){
     console.log('Check : ', property)
     return this.http.put(baseUrl+'home/email/'+email,
@@ -81,6 +86,10 @@ export class RentalService {
     tenant, {observe: 'response'})
   }
 
+  fetchTenantByEmail(email:string)
+  {
+    return this.http.get(baseUrl + 'tenant/email/' + email)
+  }
   addInterestedHome(home : any, email: string, homeid: number){
       return this.http.put(baseUrl+ 'tenant/interestedHome/' + email + '/' + homeid,
       home, {observe : 'response'})

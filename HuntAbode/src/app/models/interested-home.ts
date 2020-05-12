@@ -1,5 +1,5 @@
 export class InterestedHome {
-    constructor(public id: number, public homeId: number, public tenantId: number, public approve: boolean){
+    constructor(public id: number, public homeId: number, public tenantId: number, public approve: String){
     }
 }
 

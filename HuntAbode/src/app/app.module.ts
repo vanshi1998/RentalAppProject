@@ -21,6 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
+import { DetailedInterestedPropertyComponent } from './components/detailed-interested-property/detailed-interested-property.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EditPropertyImagesComponent } from './components/edit-property-images/e
     EditPropertyComponent,
     EditPropertyImagesComponent,
     BookedPropertyComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    DetailedInterestedPropertyComponent
     
   ],
   imports: [

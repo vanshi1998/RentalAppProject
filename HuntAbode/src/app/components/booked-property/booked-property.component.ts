@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RentalService } from "src/app/services/rental.service";
 import { InterestedHome } from "src/app/models/interested-home";
 import { Home } from "src/app/models/home";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booked-property',
@@ -10,13 +11,15 @@ import { Home } from "src/app/models/home";
 })
 export class BookedPropertyComponent implements OnInit {
 
-  constructor(private rentalService:RentalService) { }
+  constructor(private rentalService:RentalService,private router: Router, private route: ActivatedRoute)  { }
 
   email :string;
   interestedHomes:Array<InterestedHome>;
 homeIds:Array<number>=[];
+approves:Array<String>=[];
+requiredApprove:String;
 intHomes:Array<Home>=[];
-
+id:number;
   ngOnInit(): void {
 
    this.email="abcd@gmail.com";
@@ -29,7 +32,7 @@ intHomes:Array<Home>=[];
    })
 
 
- setTimeout(() => { this.getdata();  }, 3000);
+ setTimeout(() => { this.getdata();  }, 1000);
 
 
 }
@@ -38,6 +41,7 @@ getdata()
 {
    this.interestedHomes.forEach(interestHome => {
       this.homeIds.push(interestHome.homeId);
+      this.approves.push(interestHome.approve);
     });
 
    console.log("All home ids=",this.homeIds);
@@ -51,5 +55,13 @@ getdata()
     });
    })
 }
+
+loadDetails(i:number)
+{
+  this.requiredApprove=this.approves[i];
+  this.id=this.homeIds[i];
+  this.router.navigate(["detailed-interested-property",{id:this.id,approve:this.requiredApprove}]);
+}
+
 }
 

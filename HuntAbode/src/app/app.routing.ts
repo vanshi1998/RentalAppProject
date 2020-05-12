@@ -15,6 +15,9 @@ import { EditPropertyComponent } from './components/edit-property/edit-property.
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
+import { DetailedInterestedPropertyComponent } from './components/detailed-interested-property/detailed-interested-property.component';
+import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
+import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-property', component: AddPropertyComponent },
@@ -28,6 +31,9 @@ const routes: Routes = [
   { path: 'edit-property-images', component: EditPropertyImagesComponent},
   { path: 'add-property',             component: AddPropertyComponent },
   { path: 'booked-property',             component: BookedPropertyComponent },
+  { path: 'tenant-home',             component: TenantHomeComponent },
+  { path: 'owner-home',             component: OwnerHomeComponent },
+  { path: 'detailed-interested-property',             component: DetailedInterestedPropertyComponent },
   { path: '', redirectTo: 'booked-property', pathMatch: 'full' }
 ];
 

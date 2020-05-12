@@ -69,6 +69,12 @@ public class TenantController {
 		return homeService.findAllHomeTenants();
 	}
 	
+	@GetMapping("/tenant/email/{email}")
+	public HomeTenant findTenantByEmail(@PathVariable("email") String email){
+		return homeService.findTenantByEmail(email);
+	}
+	
+	
 	@GetMapping("/tenant/viewInterestedHomes/{email}")
 	public List<InterestedHome> viewInterestedHomes(@PathVariable("email") String email)
 	{

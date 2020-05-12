@@ -196,6 +196,16 @@ public class HomeService {
 		
 	}
 	
+	public HomeTenant findTenantByEmail(String email)
+	{
+		return homeTenantRepository.findByEmail(email);
+	}
+	
+	public HomeOwner findOwnerByEmail(String email)
+	{
+		return homeOwnerRepository.findByEmail(email);
+	}
+	
 	
 	
 	

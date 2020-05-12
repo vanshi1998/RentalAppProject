@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -15,7 +16,16 @@ export class HomeComponent implements OnInit {
 
     focus;
     focus1;
-    constructor() { }
-
+    constructor(private router: Router) { }
     ngOnInit() {}
+
+    tenantComponent()
+    {
+        this.router.navigate(["tenant-home"]);
+    }
+
+    ownerComponent()
+    {
+        this.router.navigate(["owner-home"]);
+    }
 }
