@@ -56,37 +56,28 @@
             <form role="form" (ngSubmit)="onSubmit()" [formGroup]="homeForm">
               <div class="one">
 
-                <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">🖊️</span>
-                    </div>
-                    <input class="form-control"
-                   formControlName="ownerId" placeholder="Owner Id" type="number" (focus)="focus=true"
-                      (blur)="focus=false">
-                  </div>
-                </div>
-        
+
+
 
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text">🖊️</span>
                     </div>
-                    <input class="form-control" required
-                   formControlName="name" placeholder="Name of Home (E.g Abc Residence)" type="text" (focus)="focus=true"
+                    <input class="form-control" required formControlName="name"
+                      placeholder="Name of Home (E.g Abc Residence)" type="text" (focus)="focus=true"
                       (blur)="focus=false">
                   </div>
                 </div>
-        
+
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text">📍</span>
                     </div>
                     <select class="form-control" placeholder="Location" id="location" required
-               formControlName="location" (focus)="focus=true" (blur)="focus=false">
-                     <!-- <option  value="Location" disabled>Select one category </option> -->
+                      formControlName="location" (focus)="focus=true" (blur)="focus=false">
+                      <!-- <option  value="Location" disabled>Select one category </option> -->
                       <option value="" disabled selected hidden>Location</option>
                       <option value="Jakhan">Jakhan</option>
                       <option value="Rajur Road">Rajpur Road</option>
@@ -94,7 +85,7 @@
                       <option value="Makkawala">Makkawala</option>
                       <option value="Malsi">Malsi</option>
                     </select>
-                      
+
                   </div>
                 </div>
               </div>
@@ -105,8 +96,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">🚪</span>
                   </div>
-                  <select class="form-control" value="Type" required
-                formControlName="type" (focus)="focus=true" (blur)="focus=false">
+                  <select class="form-control" value="Type" required formControlName="type" (focus)="focus=true"
+                    (blur)="focus=false">
                     <option value="" disabled selected hidden>Home Type</option>
                     <option value="Flat">Flat</option>
                     <option value="Bungalow">Bungalow</option>
@@ -121,9 +112,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">🛏️</span>
                   </div>
-                  <input class="form-control" required
-                formControlName="rooms" type="number" placeholder="No. of Rooms" (focus)="focus=true"
-                    (blur)="focus=false">
+                  <input class="form-control" required formControlName="rooms" type="number" placeholder="No. of Rooms"
+                    (focus)="focus=true" (blur)="focus=false">
 
                 </div>
               </div>
@@ -133,8 +123,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">👫</span>
                   </div>
-                  <select class="form-control" required
-                 formControlName="occupancy" placeholder="Occupancy" (focus)="focus=true" (blur)="focus=false">
+                  <select class="form-control" required formControlName="occupancy" placeholder="Occupancy"
+                    (focus)="focus=true" (blur)="focus=false">
                     <option value="" disabled selected hidden>Occupancy</option>
                     <option value="Single">Single</option>
                     <option value="Sharing">Sharing</option>
@@ -149,8 +139,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">⚠️</span>
                   </div>
-                  <select class="form-control" required
-                formControlName="status" value="Status" (focus)="focus=true" (blur)="focus=false">
+                  <select class="form-control" required formControlName="status" value="Status" (focus)="focus=true"
+                    (blur)="focus=false">
                     <option value="" disabled selected hidden>Availability</option>
                     <option value="Available">Available</option>
                     <option value="Rented">Rented</option>
@@ -165,9 +155,9 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">🛀</span>
                   </div>
-                  <select class="form-control" required
-                 formControlName="furnished" value="Furnished" (focus)="focus=true" (blur)="focus=false">
-                 <option value="" disabled selected hidden>Furnishing</option>
+                  <select class="form-control" required formControlName="furnished" value="Furnished"
+                    (focus)="focus=true" (blur)="focus=false">
+                    <option value="" disabled selected hidden>Furnishing</option>
                     <option value="Fully-Furnished">Fully-Furnished</option>
                     <option value="Semi-Furnished">Semi-Furnished</option>
                     <option value="Not Furnished">Not Furnished</option>
@@ -176,7 +166,7 @@
                 </div>
               </div>
 
-              
+
               <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -185,9 +175,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Rs.</span>
                   </div>
-                  <input class="form-control" required
-                 formControlName="monthlyCost" placeholder="Monthly Rent" type="number" (focus)="focus=true"
-                    (blur)="focus=false">
+                  <input class="form-control" required formControlName="monthlyCost" placeholder="Monthly Rent"
+                    type="number" (focus)="focus=true" (blur)="focus=false">
                 </div>
               </div>
 
@@ -199,21 +188,19 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Rs.</span>
                   </div>
-                  <input class="form-control" required
-                 formControlName="securityDeposit" placeholder="Security Deposit" type="number" (focus)="focus=true"
-                    (blur)="focus=false">
+                  <input class="form-control" required formControlName="securityDeposit" placeholder="Security Deposit"
+                    type="number" (focus)="focus=true" (blur)="focus=false">
                 </div>
               </div>
 
-              <div class="form-group mb-3" >
+              <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">📷</span>
                   </div>
-              
-                  <input class="form-control" required
-                 formControlName="urlOfImage" placeholder="URL of Image" type="text" (focus)="focus=true"
-                    (blur)="focus=false">
+
+                  <input class="form-control" required formControlName="urlOfImage" placeholder="URL of Image"
+                    type="text" (focus)="focus=true" (blur)="focus=false">
                 </div>
               </div>
 
@@ -225,7 +212,8 @@
               <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
 
-                  <textarea class="form-control"  formControlName="detailedLocation" placeholder="Detailed Location" rows="3" cols="3"></textarea>
+                  <textarea class="form-control" formControlName="detailedLocation" placeholder="Detailed Location"
+                    rows="3" cols="3"></textarea>
 
 
                 </div>
@@ -237,8 +225,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
                   </div>
-                  <textarea class="form-control"  formControlName="details"
-              placeholder="Details of Home" rows="3" cols="3"></textarea>
+                  <textarea class="form-control" formControlName="details" placeholder="Details of Home" rows="3"
+                    cols="3"></textarea>
 
 
                 </div>
