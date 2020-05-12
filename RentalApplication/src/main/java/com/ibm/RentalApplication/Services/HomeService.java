@@ -1,5 +1,6 @@
 package com.ibm.RentalApplication.Services;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.RentalApplication.Entities.Home;
 import com.ibm.RentalApplication.Entities.HomeOwner;
+import com.ibm.RentalApplication.Entities.HomeTenant;
+import com.ibm.RentalApplication.Entities.InterestedHome;
 import com.ibm.RentalApplication.Repositories.HomeOwnerRepository;
 import com.ibm.RentalApplication.Repositories.HomeRepository;
+import com.ibm.RentalApplication.Repositories.HomeTenantRepository;
+import com.ibm.RentalApplication.Repositories.InterestedHomeRepository;
+
 
 @Service
 public class HomeService {
@@ -19,12 +25,14 @@ public class HomeService {
 	
 	@Autowired
 	HomeOwnerRepository homeOwnerRepository;
-
+	
 	@Autowired
 	HomeTenantRepository homeTenantRepository;
 	
 	@Autowired
-	InterestedHomeRepository interestedHomeRepository;	
+	InterestedHomeRepository interestedHomeRepository;
+	
+	
 	
 	@Transactional
 	public void addHome(Home home,String email) {
@@ -47,6 +55,11 @@ public class HomeService {
 		List<Home> homes =  homeRepository.findAll();
 		System.out.println(homes);
 		return homes;
+	}
+	
+	public Home findHomeById(int id)
+	{
+		return homeRepository.findById(id);
 	}
 	
 	public List<Home> findHomeByType(String type) {
@@ -114,8 +127,10 @@ public class HomeService {
     	home.setSecurityDeposit(security);
 		
 	}
-
-	public HomeTenant addHomeTenant(HomeTenant homeTenant,String email) {
+    
+    //For HomeTenant and Interested Homes
+    
+    public HomeTenant addHomeTenant(HomeTenant homeTenant,String email) {
 		HomeTenant homeTenant1=homeTenantRepository.findByEmail(email);
 		if(homeTenant1==null) {
 			return homeTenantRepository.save(homeTenant);
@@ -182,5 +197,14 @@ public class HomeService {
 	}
 	
 	
+	
+	
+	//explicitly setting ownerid to home (not needed in app)
+	/*@Transactional
+	public void setOwnerId(int homeid, int ownerid)
+	{
+		Home home1=homeRepository.findById(homeid);
+		home1.setOwnerId(ownerid);
+	}*/
 	
 }

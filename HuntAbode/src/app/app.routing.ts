@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'view-property-owner', component: ViewPropertyOwnerComponent },
   { path: 'add-property',             component: AddPropertyComponent },
   { path: 'booked-property',             component: BookedPropertyComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'booked-property', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 package com.ibm.RentalApplication.Controllers;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +17,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ibm.RentalApplication.Entities.Home;
 import com.ibm.RentalApplication.Entities.HomeOwner;
+
 import com.ibm.RentalApplication.Services.HomeService;
 
 
 
 @RestController
 @CrossOrigin
-public class HomeController {
+public class OwnerController {
 
 	@Autowired
 	HomeService homeService;
+	
 	
 	@PutMapping("/home/email/{email}")
 	public ResponseEntity<Void> addHome(@RequestBody Home home,@PathVariable("email") String email) {
@@ -35,21 +38,6 @@ public class HomeController {
 		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
 		return re;
 
-	}
-
-	@GetMapping("/home")
-	public List<Home> findAllHomes(){
-		return homeService.findAllHomes();
-	}
-	
-	@GetMapping("/home/type/{type}")
-	public List<Home> findHomeByType(@PathVariable("type") String type){
-		return homeService.findHomeByType(type);
-	}
-	
-	@GetMapping("/home/location/{location}")
-	public List<Home> findHomeByLocation(@PathVariable("location") String location){
-		return homeService.findHomeByLocation(location);
 	}
 	
 	@PostMapping("/owner/email/{email}")
@@ -120,52 +108,5 @@ public class HomeController {
 		return re;
 
 	}
-
-	//For tenant and interested Homes
-	
-	@PostMapping("/tenant/email/{email}")
-	public ResponseEntity<Void> addTenant(@RequestBody HomeTenant homeTenant,@PathVariable("email") String email){
-		
-		homeService.addHomeTenant(homeTenant,email);
-		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.CREATED);
-		return re;
-	} 
-	
-	//put mapping to add the interested home of particular tenant
-	
-	@PutMapping("/tenant/interestedHome/{email}/{homeid}")
-	public ResponseEntity<Void> addInterestHome(@PathVariable("email") String email,@PathVariable("homeid") int homeid) {
-		homeService.addHomeOfInterest(email,homeid);
-		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
-		return re;
-
-	}
-	
-	@GetMapping("/tenant")
-	public List<HomeTenant> findAllHmeTenants(){
-		return homeService.findAllHomeTenants();
-	}
-	
-	@GetMapping("/tenant/viewInterestedHomes/{email}")
-	public List<InterestedHome> viewInterestedHomes(@PathVariable("email") String email)
-	{
-		return homeService.findInterestedHomeOfTenant(email);
-		
-	}
-	
-	@GetMapping("/interestedHomes")
-	public List<InterestedHome> findAllHomesOfInterest(){
-		return homeService.findAllInterestedHomes();
-	}
-	
-	@GetMapping("/home/interestedTenants/{homeid}")
-	public List<HomeTenant> displayInterestedTenantsOfHome(@PathVariable("homeid") int homeid)
-	{
-		return homeService.interestedTenantsOfHome(homeid);
-	}
-	
-	
-	
-	
 	
 }

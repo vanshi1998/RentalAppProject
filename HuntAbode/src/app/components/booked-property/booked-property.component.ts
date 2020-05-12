@@ -19,7 +19,7 @@ intHomes:Array<Home>=[];
 
   ngOnInit(): void {
 
-   this.email="efgh@gmail.com";
+   this.email="abcd@gmail.com";
     console.log("Email=",this.email);
     this.rentalService.fetchInterestedHomes(this.email)
   .subscribe((res:Array<InterestedHome>)=> {

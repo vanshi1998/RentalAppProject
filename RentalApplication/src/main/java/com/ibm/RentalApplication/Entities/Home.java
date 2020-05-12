@@ -1,5 +1,6 @@
 package com.ibm.RentalApplication.Entities;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,20 +9,81 @@ import javax.persistence.Id;
 
 @Entity
 public class Home {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
+	int OwnerId;
 	String type;
 	String location;
+	String detailedLocation;
+	int rooms;
 	String occupancy;
 	String status;
-	String furnished;
 	double monthlyCost;
 	double securityDeposit;
-	int rooms;
+	String furnished;
 	String details;
-	String detailedLocation;
-	int ownerId;
+	String name;
+	String urlOfImage;
+	
+	//@OneToMany(cascade=CascadeType.ALL)
+	//List<HomeTenant> interestedTenants;
+	
+	
+	public Home()
+	{
+		
+	}
+	
+	
+	
+
+	public Home(int id, int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
+			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
+			String urlOfImage) {
+		super();
+		this.id = id;
+		OwnerId = ownerId;
+		this.type = type;
+		this.location = location;
+		this.detailedLocation = detailedLocation;
+		this.rooms = rooms;
+		this.occupancy = occupancy;
+		this.status = status;
+		this.monthlyCost = monthlyCost;
+		this.securityDeposit = securityDeposit;
+		this.furnished = furnished;
+		this.details = details;
+		this.name = name;
+		this.urlOfImage = urlOfImage;
+	}
+
+
+
+
+	public Home(int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
+			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
+			String urlOfImage) {
+		super();
+		OwnerId = ownerId;
+		this.type = type;
+		this.location = location;
+		this.detailedLocation = detailedLocation;
+		this.rooms = rooms;
+		this.occupancy = occupancy;
+		this.status = status;
+		this.monthlyCost = monthlyCost;
+		this.securityDeposit = securityDeposit;
+		this.furnished = furnished;
+		this.details = details;
+		this.name = name;
+		this.urlOfImage = urlOfImage;
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -40,6 +102,18 @@ public class Home {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	public String getDetailedLocation() {
+		return detailedLocation;
+	}
+	public void setDetailedLocation(String detailedLocation) {
+		this.detailedLocation = detailedLocation;
+	}
+	public int getRooms() {
+		return rooms;
+	}
+	public void setRooms(int rooms) {
+		this.rooms = rooms;
+	}
 	public String getOccupancy() {
 		return occupancy;
 	}
@@ -51,12 +125,6 @@ public class Home {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	public String getFurnished() {
-		return furnished;
-	}
-	public void setFurnished(String furnished) {
-		this.furnished = furnished;
 	}
 	public double getMonthlyCost() {
 		return monthlyCost;
@@ -70,11 +138,11 @@ public class Home {
 	public void setSecurityDeposit(double securityDeposit) {
 		this.securityDeposit = securityDeposit;
 	}
-	public int getRooms() {
-		return rooms;
+	public String getFurnished() {
+		return furnished;
 	}
-	public void setRooms(int rooms) {
-		this.rooms = rooms;
+	public void setFurnished(String furnished) {
+		this.furnished = furnished;
 	}
 	public String getDetails() {
 		return details;
@@ -82,65 +150,64 @@ public class Home {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public String getDetailedLocation() {
-		return detailedLocation;
-	}
-	public void setDetailedLocation(String detailedLocation) {
-		this.detailedLocation = detailedLocation;
-	}
+	
+	
+	
 	public int getOwnerId() {
-		return ownerId;
+		return OwnerId;
 	}
+
+
 	public void setOwnerId(int ownerId) {
-		this.ownerId = ownerId;
+		OwnerId = ownerId;
 	}
+
 	
-	
-	public Home() {
-	
+
+	public String getName() {
+		return name;
 	}
-	public Home(int id, String type, String location, String occupancy, String status, String furnished,
-			double monthlyCost, double securityDeposit, int rooms, String details, String detailedLocation,
-			int ownerId) {
-		super();
-		this.id = id;
-		this.type = type;
-		this.location = location;
-		this.occupancy = occupancy;
-		this.status = status;
-		this.furnished = furnished;
-		this.monthlyCost = monthlyCost;
-		this.securityDeposit = securityDeposit;
-		this.rooms = rooms;
-		this.details = details;
-		this.detailedLocation = detailedLocation;
-		this.ownerId = ownerId;
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public Home(String type, String location, String occupancy, String status, String furnished, double monthlyCost,
-			double securityDeposit, int rooms, String details, String detailedLocation, int ownerId) {
-		super();
-		this.type = type;
-		this.location = location;
-		this.occupancy = occupancy;
-		this.status = status;
-		this.furnished = furnished;
-		this.monthlyCost = monthlyCost;
-		this.securityDeposit = securityDeposit;
-		this.rooms = rooms;
-		this.details = details;
-		this.detailedLocation = detailedLocation;
-		this.ownerId = ownerId;
+
+
+
+
+	public String getUrlOfImage() {
+		return urlOfImage;
 	}
+
+
+
+
+	public void setUrlOfImage(String urlOfImage) {
+		this.urlOfImage = urlOfImage;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Home [id=" + id + ", type=" + type + ", location=" + location + ", occupancy=" + occupancy + ", status="
-				+ status + ", furnished=" + furnished + ", monthlyCost=" + monthlyCost + ", securityDeposit="
-				+ securityDeposit + ", rooms=" + rooms + ", details=" + details + ", detailedLocation="
-				+ detailedLocation + ", ownerId=" + ownerId + "]";
-	}	
+		return "Home [id=" + id + ", OwnerId=" + OwnerId + ", type=" + type + ", location=" + location
+				+ ", detailedLocation=" + detailedLocation + ", rooms=" + rooms + ", occupancy=" + occupancy
+				+ ", status=" + status + ", monthlyCost=" + monthlyCost + ", securityDeposit=" + securityDeposit
+				+ ", furnished=" + furnished + ", details=" + details + ", name=" + name + ", urlOfImage=" + urlOfImage
+				+ "]";
+	}
+
+
+
 
 	
 
+	
+	
+	
 	
 }
-

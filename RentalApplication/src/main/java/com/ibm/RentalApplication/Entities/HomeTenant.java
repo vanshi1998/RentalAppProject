@@ -1,4 +1,5 @@
 package com.ibm.RentalApplication.Entities;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,15 +11,36 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class HomeTenant {
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
 	String name;
 	String email;
-	Long contactNumber;
+	long contactNumber;
+	
 	@OneToMany(cascade=CascadeType.ALL)
-	List <InterestedHome> homesOfInterest;
+	List<InterestedHome> homesOfInterest;
+	
+	public HomeTenant()
+	{
+		
+	}
+	
+	public HomeTenant(int id, String name, String email, long contactNumber, List<InterestedHome> homesOfInterest) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.contactNumber = contactNumber;
+		this.homesOfInterest = homesOfInterest;
+	}
+	public HomeTenant(String name, String email, long contactNumber, List<InterestedHome> homesOfInterest) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.contactNumber = contactNumber;
+		this.homesOfInterest = homesOfInterest;
+	}
 	public int getId() {
 		return id;
 	}
@@ -37,10 +59,10 @@ public class HomeTenant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getContactNumber() {
+	public long getContactNumber() {
 		return contactNumber;
 	}
-	public void setContactNumber(Long contactNumber) {
+	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 	public List<InterestedHome> getHomesOfInterest() {
@@ -54,29 +76,6 @@ public class HomeTenant {
 		return "HomeTenant [id=" + id + ", name=" + name + ", email=" + email + ", contactNumber=" + contactNumber
 				+ ", homesOfInterest=" + homesOfInterest + "]";
 	}
-	public HomeTenant() {
-		super();
-	}
-	public HomeTenant(int id, String name, String email, Long contactNumber, List<InterestedHome> homesOfInterest) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.contactNumber = contactNumber;
-		this.homesOfInterest = homesOfInterest;
-	}
-	public HomeTenant(String name, String email, Long contactNumber, List<InterestedHome> homesOfInterest) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.contactNumber = contactNumber;
-		this.homesOfInterest = homesOfInterest;
-	}
-	
-	
-	
-
-	
 	
 	
 	

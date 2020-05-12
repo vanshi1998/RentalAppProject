@@ -13,21 +13,25 @@ export class AddPropertyComponent implements OnInit {
   focus;
   focus1;
    homeForm: FormGroup;
+   email:string="ikshita@gmail.com"
    
   constructor(private fb: FormBuilder,private rentalService:RentalService) { }
 
   ngOnInit(): void {
      this.homeForm = this.fb.group({
+                  name: ['', Validators.required],
                   location: ['', Validators.required],
                   type: ['', Validators.required],
                   rooms: ['', Validators.required],
                   occupancy: ['', Validators.required],
                   status: ['', Validators.required],
                   furnished: ['', Validators.required],
-                  monthlyRent: ['', Validators.required],
+                  monthlyCost: ['', Validators.required],
                   securityDeposit: ['', Validators.required],
+                  urlOfImage: ['', Validators.required],
                   detailedLocation: ['', Validators.required],
                   details: ['', Validators.required],
+                  ownerId: ['30']
                 
             });
 
@@ -35,12 +39,10 @@ export class AddPropertyComponent implements OnInit {
  onSubmit()
  {
    console.log("form value=",this.homeForm.value);
-    /*this.rentalService.fetchInterestedHomes(this.email)
-  .subscribe((res:Array<InterestedHome>)=> {
-    console.log("result",res);
-    this.interestedHomes = res;
-    console.log("Interested Homes are",this.interestedHomes);
-   })*/
+     this.rentalService.addPropertyCertain(this.homeForm.value,this.email)
+  .subscribe((res:any)=> {
+    console.log("result",res); 
+   })
  }
 
 }

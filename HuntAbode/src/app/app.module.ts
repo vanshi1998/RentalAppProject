@@ -29,7 +29,10 @@ import { ViewPropertyOwnerComponent } from './components/view-property-owner/vie
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    ViewPropertyOwnerComponent
+    ViewPropertyOwnerComponent,
+    BookedPropertyComponent,
+    AddPropertyComponent
+
   ],
   imports: [
     BrowserModule,
