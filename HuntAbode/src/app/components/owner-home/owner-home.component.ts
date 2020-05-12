@@ -32,10 +32,11 @@ export class OwnerHomeComponent implements OnInit {
   
   onSubmit(){
     //console.log("form value=", this.ownerForm.value);
+    this.gemail=this.ownerForm.value.email;
     this.rentalService.addHouseOwner(this.ownerForm.value,this.ownerForm.value.email)
             .subscribe(res=>{
               console.log(res)
-               // this.router.navigate()
+               // this.router.navigate(" ",{gmail})
             });
           
           }

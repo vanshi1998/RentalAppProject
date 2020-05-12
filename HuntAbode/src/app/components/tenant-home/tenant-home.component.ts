@@ -31,7 +31,7 @@ onSubmit(){
   this.rentalService.addTenant(this.tenantForm.value,this.tenantForm.value.email)
   .subscribe(res=>{
     console.log(res)
-   // this.router.navigate()
+   // this.router.navigate("",{gemail})
   });
 }
 
