@@ -15,6 +15,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import {BookedPropertyComponent } from './components/booked-property/booked-property.component';
 import {AddPropertyComponent } from './components/add-property/add-property.component';
+import { ViewDetailPropertyComponent } from './components/view-detail-property/view-detail-property.component';
+import {ViewPropertyComponent } from './components/view-property/view-property.component';
  
 import { HomeModule } from './components/home/home.module';
 import { LoginComponent } from './components/login/login.component';
@@ -31,6 +33,8 @@ import { TenantInfoComponent } from './components/tenant-info/tenant-info.compon
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
+    ViewDetailPropertyComponent,
+    ViewPropertyComponent,
     LoginComponent,
     ViewPropertyOwnerComponent,
     EditPropertyComponent,

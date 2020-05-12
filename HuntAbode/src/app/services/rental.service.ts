@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Home } from '../models/home';
 /*import { BehaviorSubject } from 'rxjs';*/
 
 const baseUrl = 'http://localhost:8001/';
@@ -9,6 +10,9 @@ const baseUrl = 'http://localhost:8001/';
 })
 
 export class RentalService {
+
+  homes:Array<Home>=[]
+  home:Home;
 
   constructor(private http: HttpClient) { }
 
