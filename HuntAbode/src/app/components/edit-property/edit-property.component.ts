@@ -14,7 +14,6 @@ export class EditPropertyComponent implements OnInit {
   h
 
   constructor() { }
-
   ngOnInit(): void {
 
     

@@ -15,10 +15,11 @@ export class ViewPropertyOwnerComponent implements OnInit {
   email : string='ikshita@gmail.com';
 
 
+
   constructor(private rentalService: RentalService ,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('check!');
+    console.log('check1!');
 
     this.rentalService.fetchPropertryCertain(this.email)
     .subscribe((res: Array<any>)=>{
