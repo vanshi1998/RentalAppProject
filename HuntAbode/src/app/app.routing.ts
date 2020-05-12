@@ -12,15 +12,17 @@ import { AddPropertyComponent } from './components/add-property/add-property.com
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { ViewDetailPropertyComponent } from './components/view-detail-property/view-detail-property.component';
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
 import { DetailedInterestedPropertyComponent } from './components/detailed-interested-property/detailed-interested-property.component';
 import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
 import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
+import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'add-property', component: AddPropertyComponent },
   { path: 'user-profile', component: ProfileComponent },
   { path: 'register', component: SignupComponent },
   { path: 'landing', component: LandingComponent },
@@ -34,7 +36,12 @@ const routes: Routes = [
   { path: 'tenant-home',             component: TenantHomeComponent },
   { path: 'owner-home',             component: OwnerHomeComponent },
   { path: 'detailed-interested-property',             component: DetailedInterestedPropertyComponent },
-  { path: '', redirectTo: 'booked-property', pathMatch: 'full' }
+  
+  
+  { path: 'tenant-info', component:TenantInfoComponent },
+  
+  { path: 'showDetail', component:ViewDetailPropertyComponent},
+  { path: '', redirectTo: 'view-property', pathMatch: 'full' }
 ];
 
 @NgModule({

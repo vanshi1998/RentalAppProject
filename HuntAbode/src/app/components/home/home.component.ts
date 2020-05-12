@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
         middle: false,
         right: false
     };
-
     focus;
     focus1;
     constructor(private router: Router) { }
@@ -28,4 +27,5 @@ export class HomeComponent implements OnInit {
     {
         this.router.navigate(["owner-home"]);
     }
+    
 }
