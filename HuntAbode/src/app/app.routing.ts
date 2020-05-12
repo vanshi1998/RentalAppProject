@@ -17,6 +17,7 @@ import { EditPropertyImagesComponent } from './components/edit-property-images/e
 
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
 import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-property', component: AddPropertyComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'edit-property', component: EditPropertyComponent},
   { path: 'edit-property-images', component: EditPropertyImagesComponent},
   { path: 'add-property',             component: AddPropertyComponent },
-  { path: 'tenant-info', component:TenantInfoComponent },
+  { path: 'tenant-info',   component:TenantInfoComponent },
   { path: 'booked-property',             component: BookedPropertyComponent },
   { path: '', redirectTo: 'tenant-info', pathMatch: 'full' }
 ];
