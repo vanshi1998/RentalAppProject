@@ -18,6 +18,7 @@ import {AddPropertyComponent } from './components/add-property/add-property.comp
  
 import { HomeModule } from './components/home/home.module';
 import { LoginComponent } from './components/login/login.component';
+import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,7 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    AddPropertyComponent,
-    BookedPropertyComponent
+    ViewPropertyOwnerComponent
   ],
   imports: [
     BrowserModule,
