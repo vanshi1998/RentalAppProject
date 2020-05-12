@@ -16,6 +16,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeModule } from './components/home/home.module';
 import { LoginComponent } from './components/login/login.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
+import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ViewPropertyOwnerComponent } from './components/view-property-owner/vie
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    ViewPropertyOwnerComponent
+    ViewPropertyOwnerComponent,
+    EditPropertyComponent,
+    EditPropertyImagesComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AddPropertyComponent } from './components/add-property/add-property.component';
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewPropertyOwnerComponent } from './components/view-property-owner/view-property-owner.component';
+import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'view-property', component: ViewPropertyComponent },
   { path: 'view-property-owner', component: ViewPropertyOwnerComponent },
+  { path: 'edit-property', component: EditPropertyComponent},
+  { path: 'edit-property-images', component: EditPropertyImagesComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

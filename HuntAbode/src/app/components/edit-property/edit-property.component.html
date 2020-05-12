@@ -1,0 +1,224 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+      
+      <div class="shape shape-style-1 shape-primary alpha-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+          xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+          <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="javascript:void(0)">
+  
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+  
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+  
+                  </div>
+                  <div>
+  
+                  </div>
+                  <div>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="card-body px-lg-5 py-lg-5">
+              <h2 mb-4>Edit Home Details</h2><br>
+              <form role="form">
+                <div class="one">
+                  <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">✉️</span>
+                      </div>
+                      <input class="form-control" placeholder="Email" type="email" (focus)="focus=true"
+                        (blur)="focus=false">
+                    </div>
+                  </div>
+  
+  
+                  <div class="form-group mb-3" [ngClass]="{'focused':focus1===true}">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">📍</span>
+                      </div>
+                      <select class="form-control" placeholder="Location" (focus)="focus=true" (blur)="focus=false">
+                        <option value="none" selected disabled hidden>
+                          Location
+                        </option>
+                        <option value="1">Jakhan</option>
+                        <option value="2">Rajpur Road</option>
+                        <option value="3">Johri Gaon</option>
+                        <option value="4">Makkawala</option>
+                        <option value="3">Malsi</option>
+                      </select>
+  
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">🚪</span>
+                    </div>
+                    <select class="form-control" value="Type" (focus)="focus=true" (blur)="focus=false">
+                      <option value="none" selected disabled hidden>
+                        Home Type
+                      </option>
+                      <option value="1">Flat</option>
+                      <option value="2">Bungalow</option>
+                      <option value="3">PG</option>
+                    </select>
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus4===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">🛏️</span>
+                    </div>
+                    <input class="form-control" type="number" placeholder="No. of Rooms" (focus)="focus=true"
+                      (blur)="focus=false">
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus5===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">👫</span>
+                    </div>
+                    <select class="form-control" placeholder="Occupancy" (focus)="focus=true" (blur)="focus=false">
+                      <option value="none" selected disabled hidden>
+                        Occupancy
+                      </option>
+                      <option value="1">Single</option>
+                      <option value="2">Sharing</option>
+  
+                    </select>
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">⚠️</span>
+                    </div>
+                    <select class="form-control" value="Status" (focus)="focus=true" (blur)="focus=false">
+                      <option value="none" selected disabled hidden>
+                        Availaibility
+                      </option>
+                      <option value="1">Available</option>
+                      <option value="2">Rented</option>
+  
+                    </select>
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">🛀</span>
+                    </div>
+                    <select class="form-control" value="Furnished" (focus)="focus=true" (blur)="focus=false">
+  
+                      <option value="1">Fully-Furnished</option>
+                      <option value="2">Semi-Furnished</option>
+                      <option value="3">Not Furnished</option>
+                    </select>
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative">
+  
+                    <textarea class="form-control" placeholder="Detailed Location" rows="3" cols="3"></textarea>
+  
+  
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">💸</span>
+                    </div>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rs.</span>
+                    </div>
+                    <input class="form-control" placeholder="Monthly Rent" type="number" (focus)="focus=true"
+                      (blur)="focus=false">
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">💰</span>
+                    </div>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rs.</span>
+                    </div>
+                    <input class="form-control" placeholder="Security Deposit" type="number" (focus)="focus=true"
+                      (blur)="focus=false">
+                  </div>
+                </div>
+  
+                <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"></span>
+                    </div>
+                    <textarea class="form-control" placeholder="Details of Home" rows="3" cols="3"></textarea>
+  
+  
+                  </div>
+                </div>
+  
+  
+  
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary my-4">Edit Home</button>
+                  <button type="button" class="btn btn-info my-4">Edit Images</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
