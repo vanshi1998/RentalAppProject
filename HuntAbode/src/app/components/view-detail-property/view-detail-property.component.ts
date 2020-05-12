@@ -9,6 +9,7 @@ import { Home } from 'src/app/models/home';
   styleUrls: ['./view-detail-property.component.css']
 })
 export class ViewDetailPropertyComponent implements OnInit {
+  
   homes:Array<Home>=[]
 
   constructor(private rentalService:RentalService, private router:Router, private route:ActivatedRoute) { }

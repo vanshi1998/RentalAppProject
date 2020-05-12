@@ -27,13 +27,12 @@ const routes: Routes = [
   { path: 'view-property', component: ViewPropertyComponent },
   { path: 'view-property-owner', component: ViewPropertyOwnerComponent },
   { path: 'edit-property', component: EditPropertyComponent},
-  { path: 'edit-property-images', component: EditPropertyImagesComponent},
-  { path: 'add-property',             component: AddPropertyComponent },
-  { path: 'tenant-info',   component:TenantInfoComponent },
-  { path: 'booked-property',             component: BookedPropertyComponent },
+  { path: 'edit-property-images',component: EditPropertyImagesComponent},
+  { path: 'add-property',component: AddPropertyComponent },
+  { path: 'tenant-info', component:TenantInfoComponent },
+  { path: 'booked-property', component: BookedPropertyComponent },
   { path: 'showDetail', component:ViewDetailPropertyComponent},
-    { path: '', redirectTo: 'view-property', pathMatch: 'full' }
-
+  { path: '', redirectTo: 'view-property', pathMatch: 'full' }
 ];
 
 @NgModule({

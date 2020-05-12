@@ -10,7 +10,7 @@ const baseUrl = 'http://localhost:8001/';
 })
 
 export class RentalService {
-
+  
   homes:Array<Home>=[]
   home:Home;
 
