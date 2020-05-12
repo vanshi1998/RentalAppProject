@@ -9,10 +9,12 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import {AddPropertyComponent } from './components/add-property/add-property.component';
+import {BookedPropertyComponent } from './components/booked-property/booked-property.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
     { path: 'add-property',             component: AddPropertyComponent },
+    { path: 'booked-property',             component: BookedPropertyComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },

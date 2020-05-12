@@ -52,63 +52,54 @@
 
           <div class="card-body px-lg-5 py-lg-5">
             <h2 mb-4>Home Details</h2><br>
-            <form role="form">
+
+            <form role="form" (ngSubmit)="onSubmit()" [formGroup]="homeForm">
               <div class="one">
-                <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">✉️</span>
-                    </div>
-                    <input class="form-control" placeholder="Email" type="email" (focus)="focus=true"
-                      (blur)="focus=false">
-                  </div>
-                </div>
-
-
-                <div class="form-group mb-3" [ngClass]="{'focused':focus1===true}">
-                  <div class="input-group input-group-alternative">
+        
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative" [ngClass]="{'focused':focus1===true}">
                     <div class="input-group-prepend">
                       <span class="input-group-text">📍</span>
                     </div>
-                    <select class="form-control" placeholder="Location" (focus)="focus=true" (blur)="focus=false">
-                      <option value="none" selected disabled hidden>
-                        Location
-                      </option>
-                      <option value="1">Jakhan</option>
-                      <option value="2">Rajpur Road</option>
-                      <option value="3">Johri Gaon</option>
-                      <option value="4">Makkawala</option>
-                      <option value="3">Malsi</option>
+                    <select class="form-control" placeholder="Location" id="location" required
+               formControlName="location" (focus)="focus=true" (blur)="focus=false">
+                     <!-- <option  value="Location" disabled>Select one category </option> -->
+                      <option value="" disabled selected hidden>Location</option>
+                      <option value="Jakhan">Jakhan</option>
+                      <option value="Rajur Road">Rajpur Road</option>
+                      <option value="Johri Gaon">Johri Gaon</option>
+                      <option value="Makkawala">Makkawala</option>
+                      <option value="Malsi">Malsi</option>
                     </select>
-
+                      
                   </div>
                 </div>
               </div>
 
 
-              <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+              <div class="form-group mb-3" [ngClass]="{'focused':focus2===true}">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">🚪</span>
                   </div>
-                  <select class="form-control" value="Type" (focus)="focus=true" (blur)="focus=false">
-                    <option value="none" selected disabled hidden>
-                      Home Type
-                    </option>
-                    <option value="1">Flat</option>
-                    <option value="2">Bungalow</option>
-                    <option value="3">PG</option>
+                  <select class="form-control" value="Type" required
+                formControlName="type" (focus)="focus=true" (blur)="focus=false">
+                    <option value="" disabled selected hidden>Home Type</option>
+                    <option value="Flat">Flat</option>
+                    <option value="Bungalow">Bungalow</option>
+                    <option value="PG">PG</option>
                   </select>
 
                 </div>
               </div>
 
-              <div class="form-group mb-3" [ngClass]="{'focused':focus4===true}">
+              <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">🛏️</span>
                   </div>
-                  <input class="form-control" type="number" placeholder="No. of Rooms" (focus)="focus=true"
+                  <input class="form-control" required
+                formControlName="rooms" type="number" placeholder="No. of Rooms" (focus)="focus=true"
                     (blur)="focus=false">
 
                 </div>
@@ -119,12 +110,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">👫</span>
                   </div>
-                  <select class="form-control" placeholder="Occupancy" (focus)="focus=true" (blur)="focus=false">
-                    <option value="none" selected disabled hidden>
-                      Occupancy
-                    </option>
-                    <option value="1">Single</option>
-                    <option value="2">Sharing</option>
+                  <select class="form-control" required
+                 formControlName="occupancy" placeholder="Occupancy" (focus)="focus=true" (blur)="focus=false">
+                    <option value="" disabled selected hidden>Occupancy</option>
+                    <option value="Single">Single</option>
+                    <option value="Sharing">Sharing</option>
 
                   </select>
 
@@ -136,12 +126,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">⚠️</span>
                   </div>
-                  <select class="form-control" value="Status" (focus)="focus=true" (blur)="focus=false">
-                    <option value="none" selected disabled hidden>
-                      Availaibility
-                    </option>
-                    <option value="1">Available</option>
-                    <option value="2">Rented</option>
+                  <select class="form-control" required
+                formControlName="status" value="Status" (focus)="focus=true" (blur)="focus=false">
+                    <option value="" disabled selected hidden>Availability</option>
+                    <option value="Available">Available</option>
+                    <option value="Rented">Rented</option>
 
                   </select>
 
@@ -153,25 +142,18 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">🛀</span>
                   </div>
-                  <select class="form-control" value="Furnished" (focus)="focus=true" (blur)="focus=false">
-
-                    <option value="1">Fully-Furnished</option>
-                    <option value="2">Semi-Furnished</option>
-                    <option value="3">Not Furnished</option>
+                  <select class="form-control" required
+                 formControlName="furnished" value="Furnished" (focus)="focus=true" (blur)="focus=false">
+                 <option value="" disabled selected hidden>Furnishing</option>
+                    <option value="Fully-Furnished">Fully-Furnished</option>
+                    <option value="Semi-Furnished">Semi-Furnished</option>
+                    <option value="Not Furnished">Not Furnished</option>
                   </select>
 
                 </div>
               </div>
 
-              <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
-                <div class="input-group input-group-alternative">
-
-                  <textarea class="form-control" placeholder="Detailed Location" rows="3" cols="3"></textarea>
-
-
-                </div>
-              </div>
-
+              
               <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -180,7 +162,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Rs.</span>
                   </div>
-                  <input class="form-control" placeholder="Monthly Rent" type="number" (focus)="focus=true"
+                  <input class="form-control" required
+                 formControlName="monthlyRent" placeholder="Monthly Rent" type="number" (focus)="focus=true"
                     (blur)="focus=false">
                 </div>
               </div>
@@ -193,17 +176,29 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Rs.</span>
                   </div>
-                  <input class="form-control" placeholder="Security Deposit" type="number" (focus)="focus=true"
+                  <input class="form-control" required
+                 formControlName="securityDeposit" placeholder="Security Deposit" type="number" (focus)="focus=true"
                     (blur)="focus=false">
                 </div>
               </div>
 
               <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
                 <div class="input-group input-group-alternative">
+
+                  <textarea class="form-control"  formControlName="detailedLocation" placeholder="Detailed Location" rows="3" cols="3"></textarea>
+
+
+                </div>
+              </div>
+
+
+              <div class="form-group mb-3" [ngClass]="{'focused':focus3===true}">
+                <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
                   </div>
-                  <textarea class="form-control" placeholder="Details of Home" rows="3" cols="3"></textarea>
+                  <textarea class="form-control"  formControlName="details"
+              placeholder="Details of Home" rows="3" cols="3"></textarea>
 
 
                 </div>
@@ -212,7 +207,7 @@
 
 
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4">Add Home</button>
+                <button type="submit" class="btn btn-primary my-4">Add Home</button>
               </div>
             </form>
           </div>

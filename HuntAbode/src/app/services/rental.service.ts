@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+/*import { BehaviorSubject } from 'rxjs';*/
 
 const baseUrl = 'http://localhost:8001/';
 
@@ -14,6 +14,11 @@ export class RentalService {
 
   fetchAllProperties(){
       return this.http.get(baseUrl+'home');
+  }
+
+  fetchPropertyById(id:number)
+  {
+     return this.http.get(baseUrl+'home/id/'+id);
   }
 
   fetchAllOwners(){
