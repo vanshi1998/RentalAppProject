@@ -14,6 +14,7 @@ import { ViewPropertyOwnerComponent } from './components/view-property-owner/vie
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 
+import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-property', component: AddPropertyComponent },
@@ -25,6 +26,8 @@ const routes: Routes = [
   { path: 'view-property-owner', component: ViewPropertyOwnerComponent },
   { path: 'edit-property', component: EditPropertyComponent},
   { path: 'edit-property-images', component: EditPropertyImagesComponent},
+  { path: 'add-property',             component: AddPropertyComponent },
+  { path: 'booked-property',             component: BookedPropertyComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
