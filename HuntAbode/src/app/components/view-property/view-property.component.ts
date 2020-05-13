@@ -35,7 +35,7 @@ export class ViewPropertyComponent implements OnInit {
   showDetails(homeId:number){
     console.log("detail of home");
     this.id=homeId;
-    this.router.navigate(["showDetail",{id:this.id}]);
+    this.router.navigate(["showDetail",{id:this.id,email:this.email}]);
   }
   
   interestHomes(){

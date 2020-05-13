@@ -56,9 +56,9 @@ public class TenantController {
 	
 	//put mapping to add the interested home of particular tenant
 	
-	@PutMapping("/tenant/interestedHome/{email}/{homeid}")
-	public ResponseEntity<Void> addInterestHome(@PathVariable("email") String email,@PathVariable("homeid") int homeid) {
-		homeService.addHomeOfInterest(email,homeid);
+	@PutMapping("/tenant/interestedHome/{email}/{homeid}/date/{meetingDate}")
+	public ResponseEntity<Void> addInterestHome(@PathVariable("email") String email,@PathVariable("homeid") int homeid,@PathVariable("meetingDate") String meetingDate) {
+		homeService.addHomeOfInterest(email,homeid,meetingDate);
 		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
 		return re;
 

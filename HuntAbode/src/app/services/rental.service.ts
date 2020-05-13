@@ -94,8 +94,8 @@ export class RentalService {
   {
     return this.http.get(baseUrl + 'tenant/email/' + email)
   }
-  addInterestedHome(home : any, email: string, homeid: number){
-      return this.http.put(baseUrl+ 'tenant/interestedHome/' + email + '/' + homeid,
+  addInterestedHome(home : any, email: string, homeid: number,meetingDate:string){
+      return this.http.put(baseUrl+ 'tenant/interestedHome/' + email + '/' + homeid + '/date/' +meetingDate,
       home, {observe : 'response'})
   }
 

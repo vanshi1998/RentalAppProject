@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Home } from 'src/app/models/home';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,12 +16,11 @@ export class ViewDetailPropertyComponent implements OnInit {
 
   home: Home;
   id: any;
-  fromDate: NgbDate;
-  toDate: NgbDate;
-  hoveredDate: NgbDate;
   closeResult: string;
-  model1: NgbDate;
-  model2: NgbDate;
+  dateForm: FormGroup;
+  email:string;
+  meetingDate:string;
+  message:boolean=false;
 
   focus;
   focus1;
@@ -28,7 +28,7 @@ export class ViewDetailPropertyComponent implements OnInit {
   focus3;
   focus4;
 
-  constructor(private modalService: NgbModal, calendar: NgbCalendar, private rentalService: RentalService, private router: Router, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder,private modalService: NgbModal, calendar: NgbCalendar, private rentalService: RentalService, private router: Router, private route: ActivatedRoute) {
 
   }
 
@@ -38,11 +38,16 @@ export class ViewDetailPropertyComponent implements OnInit {
 
       console.log('***', params.get('id'));
       this.id = params.get('id');
+      this.email=params.get('email');
       console.log("Id is", this.id);
+      console.log("Email=",this.email);
 
 
     })
 
+     this.dateForm = this.fb.group({
+      myDate: ['', Validators.required]
+    }); 
 
 
     this.rentalService.fetchPropertyById(this.id).subscribe((res: Home) => {
@@ -85,5 +90,19 @@ export class ViewDetailPropertyComponent implements OnInit {
     }
   }
 
+
+  onSubmit()
+  {
+    console.log("date=",this.dateForm.value.myDate);
+    this.meetingDate=this.dateForm.value.myDate;
+    console.log("meeting date=",this.meetingDate);
+    this.rentalService.addInterestedHome(this.home,this.email,this.id,this.meetingDate).subscribe((res: any) => {
+      console.log("result=", res);
+      console.log("status code=",res.status);
+      if(res.status==202)
+      this.message=true;
+    })
+
+  } 
 
 }

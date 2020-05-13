@@ -1,5 +1,4 @@
 package com.ibm.RentalApplication.Services;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -144,7 +143,7 @@ public class HomeService {
     //adding home of interest
     
     @Transactional
-    public void addHomeOfInterest(String email,int homeid)
+    public void addHomeOfInterest(String email,int homeid,String meetingDate)
     {
     	HomeTenant homeTenant2=homeTenantRepository.findByEmail(email);
     	int tenantid=homeTenant2.getId();
@@ -154,6 +153,7 @@ public class HomeService {
     	InterestedHome intHome = new InterestedHome();
     	intHome.setHomeId(homeid);
     	intHome.setTenantId(tenantid);
+    	intHome.setMeetingDate(meetingDate);
     	System.out.println("Interested Home to be added="+intHome);
     	interestedHomes.add(intHome);
     	System.out.println("Interested home of tenant after-"+interestedHomes);
