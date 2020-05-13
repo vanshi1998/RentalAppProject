@@ -25,16 +25,17 @@
                     <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
                       <i class="ni ni-check-bold"></i>
                     </div>
-                    <img src="./assets/img/homeimg.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+                    <img src={{home.urlOfImage}} class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
                     <br>
-                <h6 class="text-primary text-uppercase">{{home.location}}</h6>
-                <p class="description mt-3">{{home.details}}</p>
-                <div>
-                  <span class="badge badge-pill badge-primary">{{home.type}}</span>
-                  <span class="badge badge-pill badge-primary">{{home.occupancy}}</span>
-                  <span class="badge badge-pill badge-primary">{{home.furnished}}</span>
-                </div>
-                <button (click)="showDetails()" class="btn btn-primary mt-4">View this home</button>
+                    <h4 class="text-info text-uppercase">{{home.name}}</h4>
+                    <h6 class="text-primary text-uppercase">{{home.location}}</h6>
+                    <p class="description mt-3">{{home.details}}</p>
+                    <div>
+                      <span class="badge badge-pill badge-primary">Rooms-{{home.rooms}}</span>
+                      <span class="badge badge-pill badge-primary">Type-{{home.type}}</span>
+                      <span class="badge badge-pill badge-primary">Cost-{{home.monthlyCost}}</span>
+                    </div>
+                <button (click)="showDetails(home.id)" class="btn btn-primary mt-4">View this home</button>
               </div>
             </div>
           </div>

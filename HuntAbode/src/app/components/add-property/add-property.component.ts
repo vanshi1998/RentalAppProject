@@ -14,11 +14,21 @@ export class AddPropertyComponent implements OnInit {
   focus;
   focus1;
    homeForm: FormGroup;
-   email:string="ikshita@gmail.com"
+   email:string;
    
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe(params => {
+      
+      console.log('***', params.get('email'));
+      this.email=params.get('email');
+      console.log("Email=",this.email);
+      
+    })
+
+
      this.homeForm = this.fb.group({
                   name: ['', Validators.required],
                   location: ['', Validators.required],
@@ -52,6 +62,6 @@ export class AddPropertyComponent implements OnInit {
 
  dashboard()
  {
-  this.router.navigate(["user-profile"]);
+  this.router.navigate(["user-profile",{email:this.email}]);
  }
 }

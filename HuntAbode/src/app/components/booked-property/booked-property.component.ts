@@ -22,7 +22,16 @@ intHomes:Array<Home>=[];
 id:number;
   ngOnInit(): void {
 
-   this.email="abcd@gmail.com";
+   //this.email="abcd@gmail.com";
+
+   this.route.paramMap.subscribe(params => {
+      
+    console.log('***', params.get('email'));
+    this.email=params.get('email');
+    console.log("Email=",this.email);
+    
+  })
+
     console.log("Email=",this.email);
     this.rentalService.fetchInterestedHomes(this.email)
   .subscribe((res:Array<InterestedHome>)=> {

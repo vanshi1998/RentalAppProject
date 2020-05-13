@@ -25,6 +25,8 @@ import { EditPropertyComponent } from './components/edit-property/edit-property.
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
 import { DetailedInterestedPropertyComponent } from './components/detailed-interested-property/detailed-interested-property.component';
 import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
+import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
+import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { TenantInfoComponent } from './components/tenant-info/tenant-info.compon
     BookedPropertyComponent,
     AddPropertyComponent,
     DetailedInterestedPropertyComponent,
-    TenantInfoComponent
+    TenantInfoComponent,
+    TenantHomeComponent,
+   OwnerHomeComponent
     
   ],
   imports: [

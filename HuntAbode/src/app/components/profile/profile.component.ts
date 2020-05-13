@@ -18,14 +18,14 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit() {
 
-        this.email="ikshita@gmail.com";
+        //this.email="ikshita@gmail.com";
 
-        /* this.route.paramMap.subscribe(params => {
+         this.route.paramMap.subscribe(params => {
       
             console.log('***', params.get('email'));
             this.email=params.get('email');
         
-          }) */
+          }) 
 
           this.rentalService.fetchOwnerByEmail(this.email).subscribe((res:  HomeOwner) => {
       

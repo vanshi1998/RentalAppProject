@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ViewPropertyOwnerComponent implements OnInit {
 
   homes:Array<any>=[]
-  email : string='ikshita@gmail.com';
+  email : string;
 
 
 
@@ -20,6 +20,13 @@ export class ViewPropertyOwnerComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('check1!');
+
+    this.route.paramMap.subscribe(params => {
+      
+      console.log('***', params.get('email'));
+      this.email=params.get('email');
+  
+    }) 
 
     this.rentalService.fetchPropertryCertain(this.email)
     .subscribe((res: Array<any>)=>{
