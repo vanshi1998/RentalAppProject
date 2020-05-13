@@ -34,7 +34,7 @@ export class RentalService {
   }
 
   deleteHome(id: number){
-    return this.http.delete(baseUrl + 'home/id/' +id, {observe : 'response'})
+    return this.http.delete(baseUrl + 'home/delete/' +id, {observe : 'response'})
   }
 
   /* For now "any" type has been used, can be updated after creating specific models.  */
