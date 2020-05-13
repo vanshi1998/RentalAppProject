@@ -37,7 +37,7 @@
                   <i class="ni ni-spaceship"></i>
                 </div>
                 <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1" (click)="ownerComponent()">List Home</h6>
+                  <h6 class="heading text-primary mb-md-1" (click)="ownerComponent()">Owner</h6>
                   <p class="description d-none d-md-inline-block mb-0">Start Listing Homes.</p>
                 </div>
               </a>
@@ -46,30 +46,22 @@
                   <i class="ni ni-palette"></i>
                 </div>
                 <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Book Home</h6>
+                  <h6 class="heading text-primary mb-md-1">Tenant</h6>
                   <p class="description d-none d-md-inline-block mb-0">We do everything for you!</p>
                 </div>
               </a>
-              <a routerLinkActive="active" class="media d-flex align-items-center">
-                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                  <i class="ni ni-ui-04"></i>
-                </div>
-                <div class="media-body ml-3">
-                  <h5 class="heading text-warning mb-md-1">About</h5>
-                  <p class="description d-none d-md-inline-block mb-0">See how it works</p>
-                </div>
-              </a>
+
             </div>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" data-toggle="dropdown" role="button">
             <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Contact</span>
+            <span class="nav-link-inner--text">About</span>
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item">Write Us</a>
-            <a class="dropdown-item">Call Us</a>
+            <a class="dropdown-item" (click)="aboutComponent()">About Us</a>
+
 
           </div>
         </li>

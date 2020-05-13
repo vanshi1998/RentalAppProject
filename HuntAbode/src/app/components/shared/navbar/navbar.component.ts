@@ -67,4 +67,8 @@ export class NavbarComponent implements OnInit {
     homeComponent() {
         this.router.navigate(["home"]);
     }
+
+    aboutComponent() {
+        this.router.navigate(["landing"]);
+    }
 }
