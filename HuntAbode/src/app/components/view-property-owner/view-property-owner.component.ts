@@ -13,6 +13,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
 
   homes:Array<any>=[]
   email : string;
+  showMessage: boolean=false;
 
 
 
@@ -35,11 +36,36 @@ export class ViewPropertyOwnerComponent implements OnInit {
     })
   }
 
-  deleteProperty(){
+  deleteProperty(id: number){
     /* to be implemented  */
+    console.log('Delete attempted with id: '+id);
+    this.rentalService.deleteHome(id)
+    .subscribe((res:any)=>{
+      console.log(res);
+      if(res.status == 200){
+        this.showMessage = true;
+        this.homes = this.homes.filter((home)=> home.id!=id)
+      }
+    })
 
   }
 
 }
+
+/*
+
+deleteEmployee(id: number){
+    this.employeeService.deleteEmployee(id)
+    .subscribe((res:any)=> {
+      console.log(res);
+     if(res.status == 200){
+       this.showMessage = true;
+       this.employees = this.employees.filter((employee)=> employee.id!=id)
+     }
+    })
+  }
+
+
+*/
 
 

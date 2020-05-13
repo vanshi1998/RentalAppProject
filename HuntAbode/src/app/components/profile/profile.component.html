@@ -32,35 +32,30 @@
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
               <div class="card-profile-actions py-4 mt-lg-0">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4" (click)="addMyProperty()">Meetings</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right" (click)="viewMyProperty()">Homes</a>
+
+                <a href="javascript:void(0)" class="btn btn-rg btn-default float-right" (click)="viewMyProperty()">👀
+                  View
+                  Homes</a>
               </div>
             </div>
             <div class="col-lg-4 order-lg-1">
               <div class="card-profile-stats d-flex justify-content-center">
-                <div>
-                  <span class="heading">2</span>
-                  <span class="description">Approved</span>
-                </div>
-                <div>
-                  <span class="heading">1</span>
-                  <span class="description">Pending</span>
-                </div>
-                <div>
-                  <span class="heading">8</span>
-                  <span class="description">Rejected</span>
-                </div>
+                <a href="javascript:void(0)" class="btn btn-rg btn-info mr-4 mt-2" (click)="addMyProperty()">📃 Add
+                  Home</a>
               </div>
             </div>
           </div>
+          <br>
           <div class="text-center mt-5">
-            <h3>Jessica Ghomez
+            <h3>{{homeOwner.name}}
 
             </h3>
-            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Dehradun, Uttrakhand</div>
-            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager
+            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{homeOwner.email}}</div>
+            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{homeOwner.contactNumber}}
             </div>
-            <div><i class="ni education_hat mr-2"></i>University of Computer Science</div>
+            <div> <a href="javascript:void(0)" class="btn btn-rg btn-danger ml-4 mr-4" (click)="addMyProperty()">📅
+                Meetings</a>
+            </div>
           </div>
           <div class="mt-5 py-5 border-top text-center">
             <div class="row justify-content-center">
