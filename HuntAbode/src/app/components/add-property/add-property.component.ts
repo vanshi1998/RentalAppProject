@@ -15,6 +15,7 @@ export class AddPropertyComponent implements OnInit {
   focus1;
    homeForm: FormGroup;
    email:string;
+   ownerId:any;
    
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
@@ -24,8 +25,9 @@ export class AddPropertyComponent implements OnInit {
       
       console.log('***', params.get('email'));
       this.email=params.get('email');
+      this.ownerId=params.get('ownerId');
       console.log("Email=",this.email);
-      
+      console.log("Owner id=",this.ownerId);
     })
 
 
@@ -42,7 +44,7 @@ export class AddPropertyComponent implements OnInit {
                   urlOfImage: ['', Validators.required],
                   detailedLocation: ['', Validators.required],
                   details: ['', Validators.required],
-                  ownerId: ['30']
+                  ownerId: [this.ownerId]
                 
             });
 
@@ -50,6 +52,7 @@ export class AddPropertyComponent implements OnInit {
  onSubmit()
  {
    console.log("form value=",this.homeForm.value);
+   console.log("Owner Id=",this.homeForm.value.ownerId);
      this.rentalService.addPropertyCertain(this.homeForm.value,this.email)
   .subscribe((res:any)=> {
     console.log("result",res); 

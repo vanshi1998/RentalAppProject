@@ -27,7 +27,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
       console.log('***', params.get('email'));
       this.email=params.get('email');
   
-    }) 
+    })  
 
     this.rentalService.fetchPropertryCertain(this.email)
     .subscribe((res: Array<any>)=>{
@@ -35,6 +35,12 @@ export class ViewPropertyOwnerComponent implements OnInit {
       this.homes=res;
     })
   }
+
+  manageComponents(homeId:number)
+  {
+    this.router.navigate(["tenant-info",{id:homeId}]);
+  }
+
 
   deleteProperty(id: number){
     /* to be implemented  */

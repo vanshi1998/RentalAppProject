@@ -32,7 +32,51 @@
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
               <div class="card-profile-actions py-4 mt-lg-0">
-                <a href="javascript:void(0)" class="btn btn-lg btn-warning mr-4">Schedule a Meeting</a>
+                <a href="javascript:void(0)" class="btn btn-lg btn-warning mr-4" (click)="open(classic,'' , '')">Schedule a Meeting</a>
+
+                <ng-template #classic let-c="close" let-d="dismiss">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h6 class="modal-title" id="modal-title-default">Choose a Date for the Meeting</h6>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+
+                      <h3 class="h4 text-success font-weight-bold mt-md mb-4">Datepicker</h3>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <small class="d-block text-uppercase font-weight-bold mb-3">Single date</small>
+                          <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                              </div>
+                              <input class="form-control datepicker" placeholder="Select date" name="dp" [(ngModel)]="model" ngbDatepicker
+                                #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text"
+                                (select)="onDateSelection($event)" autocomplete="off" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+
+
+
+
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal" (click)="c('Close click')">Close</button>
+                    </div>
+                  </div>
+                </ng-template>
+
+
+
+
               </div>
             </div>
             <div class="col-lg-4 order-lg-1">

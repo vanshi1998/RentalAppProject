@@ -13,9 +13,19 @@ export class TenantInfoComponent implements OnInit {
 
   tenants:Array<HomeTenant>=[]
   tenantname:String
+  homeId:any;
   constructor(private rentalService: RentalService,private router: Router, private route: ActivatedRoute) {      }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe(params => {
+      
+      console.log('***', params.get('id'));
+      this.homeId=params.get('id');
+      console.log("Home id=",this.homeId);
+      
+    })
+
     this.rentalService.fetchAllTenants()
   .subscribe((res:Array<HomeTenant>)=> {
     console.log(res);       
