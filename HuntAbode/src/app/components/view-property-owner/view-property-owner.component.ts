@@ -38,7 +38,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
 
   manageComponents(homeId:number)
   {
-    this.router.navigate(["tenant-info",{id:homeId}]);
+    this.router.navigate(["tenant-info",{id:homeId,email:this.email}]);
   }
 
 
