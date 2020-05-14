@@ -17,7 +17,7 @@ node_js:
 before_install:
   - cd HuntAbode
   - npm install
-  - npm run build-prod
+  - npm run build --prod 
   - cd ..
   - mv  HuntAbode/dist/HuntAbode/* RentalApplication/src/main/resources/static
   - git add .
