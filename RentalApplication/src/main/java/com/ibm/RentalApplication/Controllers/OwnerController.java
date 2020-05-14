@@ -97,6 +97,7 @@ public class OwnerController {
 		return re;
 
 	}
+
 	
 	@PutMapping("/home/updateByOccupancy/{id}/{occupancy}")
 	public ResponseEntity<Void> updateHomeByOccupancy(@PathVariable("id") int id,@PathVariable("occupancy") String occupancy) {
