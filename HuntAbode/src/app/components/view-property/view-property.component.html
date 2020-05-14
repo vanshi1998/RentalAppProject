@@ -4,21 +4,36 @@
     <span></span><span></span><span></span>
     <span></span><span></span>
   </div>
-  <div class="container py-lg-md d-flex">
-    <button class="btn btn-lg" (click)="interestHomes()">View Interested Homes</button>
+
+  <div class="container location">
+    <div class="col-lg-5">
+
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By Location:</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="jakhan()">Jakhan</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="rajpur()">Rajpur Road</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="johri()">Johri Gaon</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="makkawala()">Makkawala</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="malsi()">Malsi</span>
+    </div>
   </div>
   <div class="separator separator-bottom separator-skew">
     <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
     </svg>
   </div>
+
 </section>
 
 <section class="section section-lg pt-lg-0 mt--200">
   <div class="container">
+    <div class="icon icon-shape icon-shape-danger rounded-circle" (click)="interestHomes()" placement="right"
+      ngbTooltip="View Intrested Homes">❤️</div>
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="row row-grid">
+          <div class="container py-lg-md d-flex">
+
+          </div>
           <div class="col-lg-4" *ngFor="let home of homes">
             <div class="card card-lift--hover shadow border-0">
               <div class="card-body py-5">

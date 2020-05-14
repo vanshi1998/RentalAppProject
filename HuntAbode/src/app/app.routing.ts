@@ -14,7 +14,7 @@ import { ViewPropertyOwnerComponent } from './components/view-property-owner/vie
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { ViewDetailPropertyComponent } from './components/view-detail-property/view-detail-property.component';
 import { EditPropertyImagesComponent } from './components/edit-property-images/edit-property-images.component';
-
+import { LocationFilteredComponent } from './components/location-filtered/location-filtered.component';
 import { BookedPropertyComponent } from './components/booked-property/booked-property.component';
 import { DetailedInterestedPropertyComponent } from './components/detailed-interested-property/detailed-interested-property.component';
 import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
@@ -29,18 +29,18 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'view-property', component: ViewPropertyComponent },
   { path: 'view-property-owner', component: ViewPropertyOwnerComponent },
-  { path: 'edit-property', component: EditPropertyComponent},
-  { path: 'edit-property-images', component: EditPropertyImagesComponent},
-  { path: 'add-property',             component: AddPropertyComponent },
-  { path: 'booked-property',             component: BookedPropertyComponent },
-  { path: 'tenant-home',             component: TenantHomeComponent },
-  { path: 'owner-home',             component: OwnerHomeComponent },
-  { path: 'detailed-interested-property',             component: DetailedInterestedPropertyComponent },
-  
-  
-  { path: 'tenant-info', component:TenantInfoComponent },
-  
-  { path: 'showDetail', component:ViewDetailPropertyComponent},
+  { path: 'edit-property', component: EditPropertyComponent },
+  { path: 'edit-property-images', component: EditPropertyImagesComponent },
+  { path: 'add-property', component: AddPropertyComponent },
+  { path: 'booked-property', component: BookedPropertyComponent },
+  { path: 'tenant-home', component: TenantHomeComponent },
+  { path: 'owner-home', component: OwnerHomeComponent },
+  { path: 'detailed-interested-property', component: DetailedInterestedPropertyComponent },
+  { path: 'location-filtered', component: LocationFilteredComponent },
+
+  { path: 'tenant-info', component: TenantInfoComponent },
+
+  { path: 'showDetail', component: ViewDetailPropertyComponent },
   { path: '', redirectTo: 'view-property', pathMatch: 'full' }
 ];
 
