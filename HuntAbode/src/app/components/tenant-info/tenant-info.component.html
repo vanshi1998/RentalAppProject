@@ -40,8 +40,8 @@
                   <td>{{tenant.email}}</td>
                   <td>{{meetingDates[i]}}</td>
                   <td>
-                    <a class="btn btn-success left-align"><i class="fa fa-pencil"></i> Approve</a>
-                      <a class="btn btn-danger red"><i class="fa fa-remove"></i> Reject
+                    <a class="btn btn-success left-align"><i class="fa fa-pencil" (click)="onApprove()"></i> Approve</a>
+                      <a class="btn btn-danger red"><i class="fa fa-remove " (click)="onReject()"></i> Reject
                       </a>
                     
                   </td>
