@@ -8,7 +8,7 @@
   <div class="container location d-flex">
     <div class="col-lg-5">
 
-      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search by Location:</h3>
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Location</h3>
       <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Jakhan</span>
       <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="rajpur()">Rajpur Road</span>
       <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="johri()">Johri Gaon</span>
@@ -20,20 +20,30 @@
 
     <div class="col-lg-5">
 
-      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Furnishing:</h3>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Semi-Furnished</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Furnished</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Fully-furnished</span>
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Furnishing</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc"
+        (click)="semi-furnished()">Semi-Furnished</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="furnished()">Furnished</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="fully()">Fully-furnished</span>
 
     </div>
   </div>
 
-  <div class="container mt-4">
+  <div class="container mt-4 d-flex">
     <div class="col-lg-5">
 
-      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Occupancy:</h3>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Single</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Sharing</span>
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Occupancy</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="single()">Single</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="sharing()">Sharing</span>
+    </div>
+
+    <div class="col-lg-5">
+
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Home-Type</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="flat()">Flat</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="pg()">PG</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="bangalow()">Bungalow</span>
+
     </div>
 
   </div>
