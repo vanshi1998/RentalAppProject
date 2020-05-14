@@ -16,7 +16,7 @@ export class TenantInfoComponent implements OnInit {
   tenantname:String
   homeId:any;
   email:string;
-  meetingDates:Array<string>;
+  meetingDates:Array<string>=[];
   
   constructor(private rentalService: RentalService,private router: Router, private route: ActivatedRoute) {      }
 
@@ -34,11 +34,18 @@ export class TenantInfoComponent implements OnInit {
 
     this.rentalService.fetchInterestedTenants(this.homeId)
   .subscribe((res:Array<HomeTenant>)=> {
-    console.log(res);       
+    console.log("Result",res);       
     this.tenants = res;
     
   })   
 
+  
+setTimeout(() => { this.getdata();  }, 3000);
+
+}
+
+getdata()
+{
   this.tenants.forEach(tenant => {
 
     tenant.homesOfInterest.forEach(homeOfInterest => {
@@ -48,12 +55,6 @@ export class TenantInfoComponent implements OnInit {
       }
     });
   });
-setTimeout(() => { this.getdata();  }, 2000);
-
-}
-
-getdata()
-{
   console.log("tenants are=",this.tenants);
   console.log("dates are=",this.meetingDates);
 }
