@@ -5,17 +5,41 @@
     <span></span><span></span>
   </div>
 
-  <div class="container location">
+  <div class="container location d-flex">
     <div class="col-lg-5">
 
-      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By Location:</h3>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="jakhan()">Jakhan</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="rajpur()">Rajpur Road</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="johri()">Johri Gaon</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="makkawala()">Makkawala</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1" (click)="malsi()">Malsi</span>
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search by Location:</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Jakhan</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="rajpur()">Rajpur Road</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="johri()">Johri Gaon</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="makkawala()">Makkawala</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Malsi</span>
+    </div>
+
+
+
+    <div class="col-lg-5">
+
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Furnishing:</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Semi-Furnished</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Furnished</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Fully-furnished</span>
+
     </div>
   </div>
+
+  <div class="container mt-4">
+    <div class="col-lg-5">
+
+      <h3 class="h6 text-neutral font-weight-bold mb-2 ">Occupancy:</h3>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Single</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Sharing</span>
+    </div>
+
+  </div>
+
+
+
   <div class="separator separator-bottom separator-skew">
     <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
@@ -26,8 +50,8 @@
 
 <section class="section section-lg pt-lg-0 mt--200">
   <div class="container">
-    <div class="icon icon-shape icon-shape-danger rounded-circle" (click)="interestHomes()" placement="right"
-      ngbTooltip="View Intrested Homes">❤️</div>
+    <div class="btn btn-danger" (click)="interestHomes()">❤️ View
+      Intrested Homes</div>
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="row row-grid">
@@ -45,9 +69,9 @@
                 <h6 class="text-primary text-uppercase">{{home.location}}</h6>
                 <p class="description mt-3">{{home.details}}</p>
                 <div>
-                  <span class="badge badge-pill badge-primary">Rooms-{{home.rooms}}</span>
-                  <span class="badge badge-pill badge-primary">Type-{{home.type}}</span>
-                  <span class="badge badge-pill badge-primary">Cost-{{home.monthlyCost}}</span>
+                  <span class="badge badge-pill badge-primary ml-1">Rooms-{{home.rooms}}</span>
+                  <span class="badge badge-pill badge-primary ml-1">Type-{{home.type}}</span>
+                  <span class="badge badge-pill badge-primary ml-1">Cost-{{home.monthlyCost}}</span>
                 </div>
                 <button (click)="showDetails(home.id)" class="btn btn-primary mt-4">View this home</button>
               </div>
