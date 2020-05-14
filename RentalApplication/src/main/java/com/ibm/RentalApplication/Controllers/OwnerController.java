@@ -115,4 +115,12 @@ public class OwnerController {
 
 	}
 	
+	@PutMapping("/updateMeeting/homeId/{homeId}/tenantId/{tenantId}/{status}")
+	public ResponseEntity<Void> updateMeeting(@PathVariable("homeId") int homeId,@PathVariable("tenantId") int tenantId,@PathVariable("status") String status) {
+		homeService.updateMeetingStatus(homeId,tenantId,status);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
+		return re;
+
+	}
+	
 }

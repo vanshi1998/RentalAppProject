@@ -44,14 +44,18 @@
             <td>{{meetingDates[i]}}</td>
             <td>
 
-              <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+              <div class="icon icon-shape icon-shape-success rounded-circle mb-4" (click)="updateApprove(tenant.id)"
+                [disabled]="iReject || approve[i]!='Pending'">
                 ✔️
               </div>
 
-              <div class="icon icon-shape icon-shape-danger rounded-circle mb-4">❌
+              <div class="icon icon-shape icon-shape-danger rounded-circle mb-4" (click)="updateReject(tenant.id)"
+                [disabled]="iApprove || approve[i]!='Pending'">❌
               </div>
 
             </td>
+            <td *ngIf="iApprove">✔️</td>
+            <td *ngIf="iReject">❌</td>
           </tr>
 
         </tbody>

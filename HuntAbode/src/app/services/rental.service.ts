@@ -112,6 +112,10 @@ export class RentalService {
     return this.http.get(baseUrl + 'home/interestedTenants/' + homeid)
   }
 
+  updateMeetingStatus(homeid:number,tenantid:number,status:string)
+  {
+    return this.http.put(baseUrl + 'updateMeeting/homeId/' + homeid+ '/tenantId/'+ tenantid + '/' +status , {}, { observe: 'response' } );
+  }
 
 }
 

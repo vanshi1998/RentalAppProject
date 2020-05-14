@@ -206,7 +206,23 @@ public class HomeService {
 		return homeOwnerRepository.findByEmail(email);
 	}
 	
-	
+	@Transactional
+	public void updateMeetingStatus(int homeId,int tenantId,String status)
+	{
+		List<InterestedHome> intHomes=interestedHomeRepository.findAll();
+		for( InterestedHome intHome : intHomes)
+		{
+			int hId=intHome.getHomeId();
+			int tId=intHome.getTenantId();
+			if(hId==homeId)
+			{
+				if(tId==tenantId)
+				{
+					intHome.setApprove(status);
+				}
+			}
+		}
+	}
 	
 	
 	//explicitly setting ownerid to home (not needed in app)
