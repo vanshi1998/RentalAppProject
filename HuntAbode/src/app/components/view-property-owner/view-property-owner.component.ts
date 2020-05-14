@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RentalService} from 'src/app/services/rental.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Home } from 'src/app/models/home';
 
 
 
@@ -14,6 +15,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
   homes:Array<any>=[]
   email : string;
   showMessage: boolean=false;
+  
 
 
 
@@ -56,6 +58,10 @@ export class ViewPropertyOwnerComponent implements OnInit {
 
   }
 
+  updateProperty(HomeId: number){
+    console.log(HomeId)
+    this.router.navigate(["edit-property",{id: HomeId, email: this.email}]);
+  }
 }
 
 /*
