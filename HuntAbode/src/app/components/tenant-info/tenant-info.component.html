@@ -40,11 +40,13 @@
                   <td>{{tenant.email}}</td>
                   <td>{{meetingDates[i]}}</td>
                   <td>
-                    <a class="btn btn-success left-align"><i class="fa fa-pencil" (click)="onApprove(tenant.id)"></i> Approve</a>
-                      <a class="btn btn-danger red"><i class="fa fa-remove " (click)="onReject(tenant.id)"></i> Reject
-                      </a>
-                    
+                    <button class="btn btn-success left-align" (click)="updateApprove(tenant.id)" [disabled]="iReject || approve[i]!='Pending'"><i class="fa fa-pencil" ></i> Approve</button>
+                      <button class="btn btn-danger red" (click)="updateReject(tenant.id)" [disabled]="iApprove || approve[i]!='Pending'"><i class="fa fa-remove " ></i> Reject
+                      </button>
+                      
                   </td>
+                  <td *ngIf="iApprove">✔️</td>
+                  <td *ngIf="iReject">❌</td>
                 </tr>
              
             </tbody>

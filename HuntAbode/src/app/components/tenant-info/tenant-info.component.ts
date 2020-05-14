@@ -17,6 +17,11 @@ export class TenantInfoComponent implements OnInit {
   homeId:any;
   email:string;
   meetingDates:Array<string>=[];
+  app:string="Approved";
+  rej:string="Rejected";
+  iApprove:boolean=false;
+  iReject:boolean=false;
+  approve:Array<any>=[];
   
   constructor(private rentalService: RentalService,private router: Router, private route: ActivatedRoute) {      }
 
@@ -52,15 +57,41 @@ getdata()
       if(homeOfInterest.homeId==this.homeId)
       {
         this.meetingDates.push(homeOfInterest.meetingDate);
+        this.approve.push(homeOfInterest.approve);
       }
     });
   });
   console.log("tenants are=",this.tenants);
   console.log("dates are=",this.meetingDates);
+  console.log("status=",this.approve);
 }
  
-onApprove(tenants:any){
-  console.log("Your meeting has been fixed");
+updateApprove(tenantId:number){
+  this.rentalService.updateMeetingStatus(this.homeId,tenantId,this.app)
+  .subscribe((res:any)=> {
+    console.log("meeting approved");
+    console.log("Result",res); 
+    this.iApprove=true;      
+    
+    
+  })   
+
 }  
+
+updateReject(tenantId:number){
+  console.log("In onreject method");
+  this.rentalService.updateMeetingStatus(this.homeId,tenantId,this.rej)
+  .subscribe((res:any)=> {
+    console.log("meeting rejected");
+    console.log("Result",res);      
+     this.iReject=true;
+    
+    
+  })   
+
+}  
+
+
+
 }
           
