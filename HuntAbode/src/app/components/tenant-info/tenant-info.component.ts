@@ -26,7 +26,7 @@ export class TenantInfoComponent implements OnInit {
       
     })
 
-    this.rentalService.fetchAllTenants()
+    this.rentalService.fetchInterestedTenants(this.homeId)
   .subscribe((res:Array<HomeTenant>)=> {
     console.log(res);       
     this.tenants = res;
