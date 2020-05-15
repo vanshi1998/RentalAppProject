@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'tenant-info', component: TenantInfoComponent },
 
   { path: 'showDetail', component: ViewDetailPropertyComponent },
-  { path: '', redirectTo: 'view-property', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
