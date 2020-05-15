@@ -9,38 +9,64 @@ import { Home } from 'src/app/models/home';
   styleUrls: ['./view-property.component.css']
 })
 export class ViewPropertyComponent implements OnInit {
-  
-  homes:Array<Home>=[]
-  email:string;
-  id:number;
 
-  constructor(private rentalService:RentalService, private router:Router, private route:ActivatedRoute) { }
+  homes: Array<Home> = []
+
+  email: string;
+  id: number;
+
+  constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
-      
+
       console.log('***', params.get('email'));
-      this.email=params.get('email');
-      console.log("Email=",this.email);
-      
+      this.email = params.get('email');
+      console.log("Email=", this.email);
+
     })
-  this.rentalService.fetchAllProperties()
-  .subscribe((res:Array<Home>)=>{
-    console.log(res);
-    this.homes=res;
-  })
+    this.rentalService.fetchAllProperties()
+      .subscribe((res: Array<Home>) => {
+        console.log(res);
+        this.homes = res;
+      })
+
   }
-  
-  showDetails(homeId:number){
+
+  showDetails(homeId: number) {
     console.log("detail of home");
-    this.id=homeId;
-    this.router.navigate(["showDetail",{id:this.id,email:this.email}]);
+    this.id = homeId;
+    this.router.navigate(["showDetail", { id: this.id, email: this.email }]);
   }
-  
-  interestHomes(){
+
+  interestHomes() {
     console.log("go to my interested homes ");
-    this.router.navigate(["booked-property",{email:this.email}]);  
+    this.router.navigate(["booked-property", { email: this.email }]);
   }
-  
+
+  jakhan() {
+    this.router.navigate(["location-filtered", { email: this.email, location: "Jakhan" }]);
+  }
+
+  rajpur() {
+    this.router.navigate(["location-filtered", { email: this.email, location: "Rajpur Road" }]);
+  }
+
+  makkawala() {
+    this.router.navigate(["location-filtered", { email: this.email, location: "Makaawala" }]);
+  }
+
+  johri() {
+    this.router.navigate(["location-filtered", { email: this.email, location: "Johri Gaon" }]);
+  }
+
+  malsi() {
+    this.router.navigate(["location-filtered", { email: this.email, location: "Malsi" }]);
+  }
+
+
+
+
+
 }

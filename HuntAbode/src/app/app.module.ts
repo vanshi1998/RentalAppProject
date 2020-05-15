@@ -27,6 +27,7 @@ import { DetailedInterestedPropertyComponent } from './components/detailed-inter
 import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
 import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
 import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
+import { LocationFilteredComponent } from './components/location-filtered/location-filtered.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { OwnerHomeComponent } from './components/owner-home/owner-home.component
     DetailedInterestedPropertyComponent,
     TenantInfoComponent,
     TenantHomeComponent,
-   OwnerHomeComponent
+   OwnerHomeComponent,
+   LocationFilteredComponent
     
   ],
   imports: [

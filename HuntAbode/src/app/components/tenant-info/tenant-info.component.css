@@ -1,0 +1,22 @@
+.table{
+    
+    border-bottom: 3px dashed #e3e3e3;
+    background: white ;
+    text-align: center;
+}
+
+thead{
+    border-bottom:none;
+    background: #e3e3e3;
+}
+
+
+.icon{
+    margin-left:10px;
+    cursor: pointer;
+}
+
+h4{
+    color: white;
+    text-transform: uppercase;
+}

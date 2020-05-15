@@ -97,6 +97,7 @@ public class OwnerController {
 		return re;
 
 	}
+
 	
 	@PutMapping("/home/updateByOccupancy/{id}/{occupancy}")
 	public ResponseEntity<Void> updateHomeByOccupancy(@PathVariable("id") int id,@PathVariable("occupancy") String occupancy) {
@@ -109,6 +110,14 @@ public class OwnerController {
 	@PutMapping("/home/updateBySecurity/{id}/{security}")
 	public ResponseEntity<Void> updateHomeBySecurity(@PathVariable("id") int id,@PathVariable("security") Double security) {
 		homeService.updateSecurityOfHome(id,security);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
+		return re;
+
+	}
+	
+	@PutMapping("/updateMeeting/homeId/{homeId}/tenantId/{tenantId}/{status}")
+	public ResponseEntity<Void> updateMeeting(@PathVariable("homeId") int homeId,@PathVariable("tenantId") int tenantId,@PathVariable("status") String status) {
+		homeService.updateMeetingStatus(homeId,tenantId,status);
 		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
 		return re;
 

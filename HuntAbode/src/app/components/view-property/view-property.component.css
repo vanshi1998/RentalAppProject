@@ -1,0 +1,17 @@
+.location{
+    width: 80%;
+    
+}
+
+.badge{
+    cursor: pointer;
+   
+}
+
+.loc{
+    color: white;
+}
+
+.container{
+    text-align: center;
+}

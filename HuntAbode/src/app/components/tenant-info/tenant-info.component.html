@@ -1,57 +1,66 @@
 <main class="profile-page">
-    <section class="section-profile-cover section-shaped my-0">
-      <!-- Circles background -->
-      <div class="shape shape-style-1 shape-primary alpha-4">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <!-- SVG separator -->
-      <!-- ❌✔️ -->
-      <div class="separator separator-bottom separator-skew">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section>
-    <section class="section section-lg pt-lg-0 mt--200" >
-      <div class="container">
-        <div class="card card-profile shadow mt--200">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Date</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let tenant of tenants;let i=index;">
-              
-                <tr>
-                  <td>{{tenant.name}}</td>
-                  <td>{{tenant.contactNumber}}</td>
-                  <td>{{tenant.email}}</td>
-                  <td>{{meetingDates[i]}}</td>
-                  <td>
-                    <a class="btn btn-success left-align"><i class="fa fa-pencil" (click)="onApprove()"></i> Approve</a>
-                      <a class="btn btn-danger red"><i class="fa fa-remove " (click)="onReject()"></i> Reject
-                      </a>
-                    
-                  </td>
-                </tr>
-             
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    </main>
-     
+  <section class="section-profile-cover section-shaped my-0">
+    <!-- Circles background -->
+    <div class="shape shape-style-1 shape-primary alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- SVG separator -->
+    <!-- ❌✔️ -->
+    <div class="separator separator-bottom separator-skew">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
 
+  <div class="container">
+    <div class="mt--200">
+      <h4 class="ml-5">Meetings Scheduled :</h4>
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let tenant of tenants;let i=index;">
+
+          <tr>
+            <td>{{tenant.name}}</td>
+            <td>{{tenant.contactNumber}}</td>
+            <td>{{tenant.email}}</td>
+            <td>{{meetingDates[i]}}</td>
+            <td>
+
+              <div class="icon icon-shape icon-shape-success rounded-circle mb-4" (click)="updateApprove(tenant.id)"
+                [disabled]="iReject || approve[i]!='Pending'">
+                ✔️
+              </div>
+
+              <div class="icon icon-shape icon-shape-danger rounded-circle mb-4" (click)="updateReject(tenant.id)"
+                [disabled]="iApprove || approve[i]!='Pending'">❌
+              </div>
+
+            </td>
+            <td *ngIf="iApprove">✔️</td>
+            <td *ngIf="iReject">❌</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
