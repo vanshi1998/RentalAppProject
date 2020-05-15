@@ -65,6 +65,41 @@ export class ViewPropertyComponent implements OnInit {
     this.router.navigate(["location-filtered", { email: this.email, location: "Malsi" }]);
   }
 
+  semiFurnished()
+  {
+
+  }
+
+  furnished()
+  {
+
+  }
+  fully()
+  {
+
+  }
+  single()
+  {
+
+  }
+  sharing()
+  {
+
+  }
+  flat()
+  {
+
+  }
+  pg()
+  {
+
+  }
+  bangalow()
+  {
+
+  }
+  
+
 
 
 

@@ -22,7 +22,7 @@ export class LocationFilteredComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
 
       console.log('***', params.get('location'), params.get('email'));
-      this.email = params.get(this.email);
+      this.email = params.get('email');
       this.location = params.get('location');
       console.log("Location=", this.location);
 
@@ -47,7 +47,7 @@ export class LocationFilteredComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["view-property"]);
+    this.router.navigate(["view-property",{email:this.email}]);
   }
 
 }
