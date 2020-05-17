@@ -70,7 +70,7 @@ export class ViewPropertyComponent implements OnInit {
   }
 
   furnished() {
-    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Furnished" }]);
+    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Fully-Furnished" }]);
   }
   unfurnished() {
     this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Unfurnished" }]);
