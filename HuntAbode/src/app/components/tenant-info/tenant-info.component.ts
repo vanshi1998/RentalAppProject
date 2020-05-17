@@ -19,8 +19,8 @@ export class TenantInfoComponent implements OnInit {
   meetingDates:Array<string>=[];
   app:string="Approved";
   rej:string="Rejected";
-  iApprove:boolean=false;
-  iReject:boolean=false;
+  iApproves:Array<boolean>=[];
+  iRejects:Array<boolean>=[];
   approve:Array<any>=[];
   
   constructor(private rentalService: RentalService,private router: Router, private route: ActivatedRoute) {      }
@@ -51,8 +51,9 @@ setTimeout(() => { this.getdata();  }, 3000);
 
 getdata()
 {
+ 
   this.tenants.forEach(tenant => {
-
+    this.iApproves.push(false);
     tenant.homesOfInterest.forEach(homeOfInterest => {
       if(homeOfInterest.homeId==this.homeId)
       {
@@ -66,25 +67,25 @@ getdata()
   console.log("status=",this.approve);
 }
  
-updateApprove(tenantId:number){
+updateApprove(tenantId:number,i:number){
   this.rentalService.updateMeetingStatus(this.homeId,tenantId,this.app)
   .subscribe((res:any)=> {
     console.log("meeting approved");
     console.log("Result",res); 
-    this.iApprove=true;      
+    this.iApproves[i]=true;      
     
     
   })   
 
 }  
 
-updateReject(tenantId:number){
+updateReject(tenantId:number,i:number){
   console.log("In onreject method");
   this.rentalService.updateMeetingStatus(this.homeId,tenantId,this.rej)
   .subscribe((res:any)=> {
     console.log("meeting rejected");
     console.log("Result",res);      
-     this.iReject=true;
+     this.iRejects[i]=true;
     
     
   })   
