@@ -46,6 +46,17 @@ public class TenantController {
 		return homeService.findHomeByLocation(location);
 	}
 	
+	@GetMapping("/home/occupancy/{occupancy}")
+	public List<Home> findHomeByOccupancy(@PathVariable("occupancy") String occupancy){
+		return homeService.findHomeByOccupancy(occupancy);
+	}
+	
+	@GetMapping("/home/furnished/{furnished}")
+	public List<Home> findHomeByFurnished(@PathVariable("furnished") String furnished){
+		return homeService.findHomeByFurnished(furnished);
+	}
+	
+	
 	@PostMapping("/tenant/email/{email}")
 	public ResponseEntity<Void> addTenant(@RequestBody HomeTenant homeTenant,@PathVariable("email") String email){
 		

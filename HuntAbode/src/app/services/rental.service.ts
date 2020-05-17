@@ -79,8 +79,16 @@ export class RentalService {
     return this.http.get(baseUrl + 'home/location/' + location)
   }
 
-  fetchHomeByType(homeId: number, type: string) {
+  fetchHomeByType(type: string) {
     return this.http.get(baseUrl + 'home/type/' + type)
+  }
+
+  fetchHomeByOccupancy(occupancy: string) {
+    return this.http.get(baseUrl + 'home/occupancy/' + occupancy);
+  }
+
+  fetchHomeByFurnished(furnished: string) {
+    return this.http.get(baseUrl + 'home/furnished/' + furnished);
   }
 
   addTenant(tenant: any, email: string) {

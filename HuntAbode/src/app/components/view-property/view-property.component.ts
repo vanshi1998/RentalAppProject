@@ -77,7 +77,7 @@ export class ViewPropertyComponent implements OnInit {
 
   }
   single() {
-    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Sharing" }]);
+    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Single" }]);
 
   }
   sharing() {

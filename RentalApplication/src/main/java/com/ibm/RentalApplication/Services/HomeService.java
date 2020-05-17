@@ -69,6 +69,16 @@ public class HomeService {
 		return homeRepository.findByLocation(location);
 	}
 
+	public List<Home> findHomeByOccupancy(String occupancy) {
+		return homeRepository.findByOccupancy(occupancy);
+	}
+	
+	public List<Home> findHomeByFurnished(String furnished) {
+		return homeRepository.findByFurnished(furnished);
+	}
+	
+	
+	
 	public HomeOwner addHomeOwner(HomeOwner homeOwner,String email) {
 		HomeOwner homeOwner1=homeOwnerRepository.findByEmail(email);
 		if(homeOwner1==null) {
