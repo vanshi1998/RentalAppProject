@@ -15,3 +15,56 @@
 .container{
     text-align: center;
 }
+
+.badge-pill0{
+    color:#ED4C67;
+}
+
+
+.badge-pill1{
+    color:rgb(66, 66, 184);
+}
+
+.badge-pill2{
+    color:#4b4b4b;
+}
+
+.badge-pill3{
+    color: green;
+}
+
+.badge-pill4{
+color: #82589F;
+}
+
+.sm{
+    color:#0c2461;
+}
+
+.ff{
+    color: #009432;
+}
+
+.fd{
+    color: #ED4C67;
+}
+
+.sin{
+    color: #0652DD;
+}
+
+.sh{
+    color: #EE5A24;
+}
+
+.fl{
+    color: #6F1E51;
+}
+
+.pg{
+    color: #009432;
+}
+
+.bn{
+    color: #EA2027;
+}

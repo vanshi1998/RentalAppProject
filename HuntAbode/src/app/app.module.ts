@@ -28,6 +28,9 @@ import { TenantInfoComponent } from './components/tenant-info/tenant-info.compon
 import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
 import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
 import { LocationFilteredComponent } from './components/location-filtered/location-filtered.component';
+import { FilterOccupancyComponent } from './component/filter-occupancy/filter-occupancy.component';
+import { FilterTypeComponent } from './component/filter-type/filter-type.component';
+import { FilterFurnishingComponent } from './component/filter-furnishing/filter-furnishing.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { LocationFilteredComponent } from './components/location-filtered/locati
     TenantInfoComponent,
     TenantHomeComponent,
    OwnerHomeComponent,
-   LocationFilteredComponent
+   LocationFilteredComponent,
+   FilterOccupancyComponent,
+   FilterTypeComponent,
+   FilterFurnishingComponent
     
   ],
   imports: [

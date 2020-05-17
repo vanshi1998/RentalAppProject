@@ -1,27 +1,39 @@
 <main class="profile-page">
   <section class="section-profile-cover section-shaped my-0">
     <!-- Circles background -->
+
     <div class="shape shape-style-1 shape-primary alpha-4">
       <span></span>
       <span></span>
+
       <span></span>
       <span></span>
+
       <span></span>
+
       <span></span>
+
       <span></span>
+
     </div>
+
     <!-- SVG separator -->
     <div class="separator separator-bottom separator-skew">
       <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
         xmlns="http://www.w3.org/2000/svg">
         <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+
       </svg>
+
+
     </div>
   </section>
   <section class="section">
     <div class="container">
       <div class="card card-profile shadow mt--300">
+
         <div class="px-4">
+
           <div class="row justify-content-center">
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
@@ -31,28 +43,36 @@
               </div>
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-              <div class="card-profile-actions py-4 mt-lg-0">
+              <div class="card-profile-actions py-4 mt-lg-0 mr-4">
+                <div class="btn btn-danger" placement="right" ngbTooltip="Sign out" (click)="interestHomes()"><i
+                    class="fa fa-sign-out" aria-hidden="true"></i></div>
 
-                <a href="javascript:void(0)" class="btn btn-rg btn-default float-right" (click)="viewMyProperty()">👀
-                  View
-                  Homes</a>
+
               </div>
             </div>
             <div class="col-lg-4 order-lg-1">
               <div class="card-profile-stats d-flex justify-content-center">
-                <a href="javascript:void(0)" class="btn btn-rg btn-info mr-4 mt-2" (click)="addMyProperty()">📃 Add
-                  Home</a>
+
+                <a href="javascript:void(0)" class="btn btn-rg btn-default mr-4 mt-2" (click)="viewMyProperty()">👀
+                  View
+                  Homes</a>
+
+
               </div>
             </div>
           </div>
           <br>
           <div class="text-center mt-5">
+
             <h3>{{homeOwner.name}}
 
             </h3>
             <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{homeOwner.email}}</div>
             <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{homeOwner.contactNumber}}
             </div>
+            <a href="javascript:void(0)" class="btn btn-rg btn-info mr-4 mt-2" (click)="addMyProperty()">📃 Add
+              Home</a>
+
             <div>
             </div>
           </div>
