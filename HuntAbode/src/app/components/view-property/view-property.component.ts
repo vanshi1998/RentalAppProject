@@ -65,40 +65,35 @@ export class ViewPropertyComponent implements OnInit {
     this.router.navigate(["location-filtered", { email: this.email, location: "Malsi" }]);
   }
 
-  semiFurnished()
-  {
-
+  semiFurnished() {
+    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Semi-Furnished" }]);
   }
 
-  furnished()
-  {
+  furnished() {
+    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Furnished" }]);
+  }
+  unfurnished() {
+    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Unfurnished" }]);
 
   }
-  fully()
-  {
+  single() {
+    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Sharing" }]);
 
   }
-  single()
-  {
+  sharing() {
+    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Sharing" }]);
+  }
+  flat() {
+    this.router.navigate(["type-filtered", { email: this.email, type: "Flat" }]);
 
   }
-  sharing()
-  {
-
+  pg() {
+    this.router.navigate(["type-filtered", { email: this.email, type: "PG" }]);
   }
-  flat()
-  {
-
+  bangalow() {
+    this.router.navigate(["type-filtered", { email: this.email, type: "Bungalow" }]);
   }
-  pg()
-  {
 
-  }
-  bangalow()
-  {
-
-  }
-  
 
 
 

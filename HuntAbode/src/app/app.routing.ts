@@ -20,6 +20,9 @@ import { DetailedInterestedPropertyComponent } from './components/detailed-inter
 import { TenantHomeComponent } from './components/tenant-home/tenant-home.component';
 import { OwnerHomeComponent } from './components/owner-home/owner-home.component';
 import { TenantInfoComponent } from './components/tenant-info/tenant-info.component';
+import { FilterOccupancyComponent } from './components/filter-occupancy/filter-occupancy.component';
+import { FilterTypeComponent } from './components/filter-type/filter-type.component';
+import { FilterFurnishingComponent } from './components/filter-furnishing/filter-furnishing.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,9 +40,10 @@ const routes: Routes = [
   { path: 'owner-home', component: OwnerHomeComponent },
   { path: 'detailed-interested-property', component: DetailedInterestedPropertyComponent },
   { path: 'location-filtered', component: LocationFilteredComponent },
-
+  { path: 'furnishing-filtered', component: FilterFurnishingComponent },
   { path: 'tenant-info', component: TenantInfoComponent },
-
+  { path: 'type-filtered', component: FilterTypeComponent },
+  { path: 'occupancy-filtered', component: FilterOccupancyComponent },
   { path: 'showDetail', component: ViewDetailPropertyComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
