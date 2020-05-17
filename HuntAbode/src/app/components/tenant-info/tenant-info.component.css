@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+.approve{
+    font-weight: bold;
+    color: rgb(87, 252, 87);
+    
+}
 thead{
     border-bottom:none;
     background: #e3e3e3;
