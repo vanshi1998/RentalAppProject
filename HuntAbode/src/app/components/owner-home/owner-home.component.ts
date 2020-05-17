@@ -18,6 +18,8 @@ export class OwnerHomeComponent implements OnInit {
   focus1;
   focus2;
   ownerForm:FormGroup;
+  message:boolean=false;
+  resultStatus:number;
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router) { }
 
   gemail:string;
@@ -25,11 +27,15 @@ export class OwnerHomeComponent implements OnInit {
     this.ownerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      contactNumber: ['', Validators.required],
+      contactNumber: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       
     
 });
 
+  }
+
+  get f(){
+    return this.ownerForm.controls;
   }
   
   onSubmit(){
@@ -38,7 +44,10 @@ export class OwnerHomeComponent implements OnInit {
     console.log("Email=",this.gemail);
      this.rentalService.addHouseOwner(this.ownerForm.value,this.gemail)
             .subscribe(res=>{
-              console.log(res)
+              console.log(res);
+              this.resultStatus=res.status;
+              if(res.status!=201)
+              this.message=true;
                // this.router.navigate(" ",{gmail})
             }); 
           
@@ -48,7 +57,10 @@ export class OwnerHomeComponent implements OnInit {
 
           getdata()
           {
+            if(this.message==false)
+            {
             this.router.navigate(["user-profile",{email:this.gemail}]);
+            }
           }
 
 }

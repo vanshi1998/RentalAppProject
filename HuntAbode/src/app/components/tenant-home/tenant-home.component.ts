@@ -21,16 +21,21 @@ export class TenantHomeComponent implements OnInit {
   focus1;
   focus2;
   tenantForm : FormGroup;
+  resultStatus:number;
+  message:boolean=false;
   
   ngOnInit(): void {
 
     this.tenantForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      contactNumber: ['', Validators.required]
+      contactNumber: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     });
     console.log("Form value=",this.tenantForm.value);
     
+  }
+  get f(){
+    return this.tenantForm.controls;
   }
 
   
@@ -41,6 +46,11 @@ onSubmit(){
   this.rentalService.addTenant(this.tenantForm.value,this.gemail)
   .subscribe(res=>{
     console.log(res);
+    this.resultStatus=res.status;
+    if(this.resultStatus!=201)
+    {
+      this.message=true;
+    }
    // this.router.navigate("",{gemail})
   }); 
 
@@ -49,7 +59,10 @@ onSubmit(){
 
 getdata()
 {
+  if(this.message==false)
+  {
   this.router.navigate(["view-property",{email:this.gemail}]);
+  }
 }
 
 }
