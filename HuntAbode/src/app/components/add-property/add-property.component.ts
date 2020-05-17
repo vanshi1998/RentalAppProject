@@ -16,7 +16,9 @@ export class AddPropertyComponent implements OnInit {
    homeForm: FormGroup;
    email:string;
    ownerId:any;
-   
+   resultStatus:number;
+   message:boolean=false;
+
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -43,7 +45,7 @@ export class AddPropertyComponent implements OnInit {
                   securityDeposit: ['', Validators.required],
                   urlOfImage: ['', Validators.required],
                   detailedLocation: ['', Validators.required],
-                  details: ['', Validators.required],
+                  details: [''],
                   ownerId: [this.ownerId]
                 
             });
@@ -56,15 +58,25 @@ export class AddPropertyComponent implements OnInit {
      this.rentalService.addPropertyCertain(this.homeForm.value,this.email)
   .subscribe((res:any)=> {
     console.log("result",res); 
+    this.resultStatus=res.status;
+    if(this.resultStatus!=202){
+      this.message=true;
+    }
    })
 
    setTimeout(() => { this.dashboard();  }, 1000);
 
    
  }
+ get f(){
+  return this.homeForm.controls;
+}
 
  dashboard()
  {
+   if(this.message==false)
+   {
   this.router.navigate(["user-profile",{email:this.email}]);
+   }
  }
 }

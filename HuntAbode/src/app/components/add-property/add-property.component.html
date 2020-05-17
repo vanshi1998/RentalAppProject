@@ -68,6 +68,7 @@
                       placeholder="Name of Home (E.g Abc Residence)" type="text" (focus)="focus=true"
                       (blur)="focus=false">
                   </div>
+                  <small class="text-danger ml-3" *ngIf="f.name.touched && f.name.invalid">*Name is required</small>
                 </div>
 
                 <div class="form-group mb-3">
@@ -87,6 +88,7 @@
                     </select>
 
                   </div>
+                  <small class="text-danger ml-3" *ngIf="f.location.touched && f.location.invalid">*Location is required</small>
                 </div>
               </div>
 
@@ -105,6 +107,7 @@
                   </select>
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.type.touched && f.type.invalid">*Type is required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -116,6 +119,7 @@
                     (focus)="focus=true" (blur)="focus=false">
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.rooms.touched && f.rooms.invalid">*Number of Rooms are required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -132,6 +136,7 @@
                   </select>
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.occupancy.touched && f.occupancy.invalid">*Occupancy is required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -148,6 +153,7 @@
                   </select>
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.status.touched && f.status.invalid">*Status is required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -164,6 +170,7 @@
                   </select>
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.furnished.touched && f.furnished.invalid">*Funishing detail is required</small>
               </div>
 
 
@@ -178,6 +185,7 @@
                   <input class="form-control" required formControlName="monthlyCost" placeholder="Monthly Rent"
                     type="number" (focus)="focus=true" (blur)="focus=false">
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.monthlyCost.touched && f.monthlyCost.invalid">*Monthly Rent amount is required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -191,6 +199,7 @@
                   <input class="form-control" required formControlName="securityDeposit" placeholder="Security Deposit"
                     type="number" (focus)="focus=true" (blur)="focus=false">
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.securityDeposit.touched && f.securityDeposit.invalid">*Security Deposit Amount is required</small>
               </div>
 
               <div class="form-group mb-3">
@@ -202,6 +211,7 @@
                   <input class="form-control" required formControlName="urlOfImage" placeholder="URL of Image"
                     type="text" (focus)="focus=true" (blur)="focus=false">
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.urlOfImage.touched && f.urlOfImage.invalid">*URL of image is required</small>
               </div>
 
 
@@ -217,6 +227,7 @@
 
 
                 </div>
+                <small class="text-danger ml-3" *ngIf="f.detailedLocation.touched && f.detailedLocation.invalid">*Detailed Location is required</small>
               </div>
 
 
@@ -235,7 +246,13 @@
 
 
               <div class="text-center">
-                <button type="submit" class="btn btn-primary my-4">Add Home</button>
+                <button type="submit" class="btn btn-primary my-4" [disabled]="!homeForm.valid">Add Home</button>
+                <br>
+                    <small class="text-danger ml-3" *ngIf="resultStatus==400">Bad Request</small>
+                    <small class="text-danger ml-3" *ngIf="resultStatus==404">Not Found Error!!</small>
+                    <small class="text-danger ml-3" *ngIf="resultStatus==408"> Request Time Out</small>
+                    <small class="text-danger ml-3" *ngIf="resultStatus==500">Internal Server Error</small>
+                    <small class="text-danger ml-3" *ngIf="resultStatus==503">Service Unavailable</small>
               </div>
             </form>
           </div>

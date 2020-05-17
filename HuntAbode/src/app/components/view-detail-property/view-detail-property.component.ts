@@ -5,6 +5,7 @@ import { Home } from 'src/app/models/home';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
+import { InterestedHome } from 'src/app/models/interested-home';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ViewDetailPropertyComponent implements OnInit {
   dateForm: FormGroup;
   email: string;
   meetingDate: string;
+  intHomes:Array<InterestedHome>;
   message: boolean = false;
 
   focus;
@@ -56,6 +58,25 @@ export class ViewDetailPropertyComponent implements OnInit {
       console.log("Home is=", this.home);
     })
 
+    this.rentalService.fetchInterestedHomes(this.email).subscribe((res: any) => {
+
+      this.intHomes = res;
+      console.log("Interested Homes are=", this.intHomes);
+    })
+
+    setTimeout(() => { this.getdata();  }, 1000);
+    
+
+  }
+
+  getdata()
+  {
+    this.intHomes.forEach(intHome => {
+      if(intHome.homeId==this.id)
+      {
+        this.message=true;
+      }
+    });
   }
 
   open(content, type, modalDimension) {
