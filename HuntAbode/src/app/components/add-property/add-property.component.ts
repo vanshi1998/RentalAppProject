@@ -18,6 +18,12 @@ export class AddPropertyComponent implements OnInit {
    ownerId:any;
    resultStatus:number;
    message:boolean=false;
+   public urls: any[] = [{
+    id : 1,
+    url:''
+  }];
+  myUrls: Array<string>=[]
+
 
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
@@ -43,7 +49,8 @@ export class AddPropertyComponent implements OnInit {
                   furnished: ['', Validators.required],
                   monthlyCost: ['', Validators.required],
                   securityDeposit: ['', Validators.required],
-                  urlOfImage: ['', Validators.required],
+                  urlOfImage: [[''], Validators.required],
+                  urls: ['', Validators.required],
                   detailedLocation: ['', Validators.required],
                   details: [''],
                   ownerId: [this.ownerId]
@@ -51,11 +58,51 @@ export class AddPropertyComponent implements OnInit {
             });
 
   }
+
+  myHome={
+
+  }
+
+  
+
+  // addUrl() {
+  //   this.urls.push(this.fb.control(''))
+  // }
+
  onSubmit()
  {
    console.log("form value=",this.homeForm.value);
    console.log("Owner Id=",this.homeForm.value.ownerId);
-     this.rentalService.addPropertyCertain(this.homeForm.value,this.email)
+   console.log("urls :",this.urls);
+
+   for(let url of this.urls){
+    //  console.log("this is ",url.url);
+     this.myUrls.push(url.url);
+
+   }
+   console.log(this.myUrls);
+
+   this.myHome={
+    detailedLocation: this.homeForm.value.detailedLocation,
+    details: this.homeForm.value.details,
+    furnished: this.homeForm.value.furnished,
+    location: this.homeForm.value.location,
+    monthlyCost: this.homeForm.value.monthlyCost,
+    name: this.homeForm.value.name,
+    occupancy: this.homeForm.value.occupancy,
+    ownerId: this.homeForm.value.ownerId,
+    rooms: this.homeForm.value.rooms,
+    securityDeposit: this.homeForm.value.securityDeposit,
+    status: this.homeForm.value.status,
+    type: this.homeForm.value.type,
+    urlOfImage: this.myUrls
+
+   }
+
+   console.log("Object to Send: ", this.myHome)
+  //  this.urls=this.homeForm.value.urlOfImage.split(',');
+  //  console.log("Urls=", this.urls);
+     this.rentalService.addPropertyCertain(this.homeForm.value,this.email) //update object in this method accordingly
   .subscribe((res:any)=> {
     console.log("result",res); 
     this.resultStatus=res.status;
@@ -79,4 +126,18 @@ export class AddPropertyComponent implements OnInit {
   this.router.navigate(["user-profile",{email:this.email}]);
    }
  }
+
+/* test-1 */
+
+addUrl() {
+  this.urls.push({
+    id: this.urls.length + 1,
+    url: ''
+  });
+}
+
+removeUrl(i: number) {
+  this.urls.splice(i, 1);
+}
+
 }

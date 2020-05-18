@@ -208,7 +208,9 @@
                   Deposit Amount is required</small>
               </div>
 
-              <div class="form-group mb-3">
+              
+              
+              <!-- <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">📷</span>
@@ -218,6 +220,26 @@
                     type="text" (focus)="focus=true" (blur)="focus=false">
                 </div>
                 <small class="text-danger ml-3" *ngIf="f.urlOfImage.touched && f.urlOfImage.invalid">*URL of image is
+                  required</small>
+              </div> -->
+
+              <button type="button" class="btn btn-outline-success mb-2" (click)="addUrl()">Add Url +</button>
+
+              <div class="form-group mb-3" *ngFor="let url of urls; let i=index;">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">URL {{i+1}} 📷</span>
+                  </div>
+
+                  
+ 
+
+                  <input class="form-control" required formControlName="urls" [(ngModel)]="url.url" placeholder="URL of Image"
+                    type="text" (focus)="focus=true" (blur)="focus=false">
+                </div>
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeUrl(i)">Remove</button>
+
+                <small class="text-danger ml-3" *ngIf="f.urls.touched && f.urls.invalid">*URL of image is
                   required</small>
               </div>
 
