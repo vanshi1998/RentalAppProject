@@ -32,71 +32,31 @@
             </div>
             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
               <div class="card-profile-actions py-4 mt-lg-0">
-                <button class="btn btn-lg btn-warning mr-4"
-                (click)="open(classic1, 'modal_mini', 'sm')" [disabled]="message" >Schedule a Meeting</button>
-
-                <!-- <ng-template #classic let-c="close" let-d="dismiss">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h6 class="modal-title" id="modal-title-default">Choose a Date for the Meeting</h6>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        (click)="d('Cross click')">
-                        <span aria-hidden="true">×</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
+                <button class="btn btn-lg btn-warning mr-4" (click)="open(classic1, 'modal_mini', 'sm')"
+                  [disabled]="message">Schedule a Meeting</button>
 
 
-                      <h3 class="h4 text-success font-weight-bold mt-md mb-4">Schedule Meeting</h3>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <small class="d-block text-uppercase font-weight-bold mb-3"><i
-                              class="ni ni-calendar-grid-58"></i> Select a Date</small>
-                              
-                                <div class="form-group" [ngClass]="{'focused':focus2===true}">  
-                                  <div class="input-group"> 
-                                      <input class="form-control datepicker" placeholder="Select date" name="dp"                                
-                                       [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (focus)="focus2=true"                                
-                                        (blur)="focus2=false" type="date" (select)="onDateSelection($event)" autocomplete="off" />      
-                                  </div>
-                                </div>
-                              
-                
-                        </div>
-                      </div>
-
-
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary" >Save changes</button>
-                      <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal"
-                        (click)="c('Close click')">Close</button>
-                    </div>
-                  </div>
-                </ng-template> -->
                 <ng-template #classic1 let-c="close" let-d="dismiss">
                   <div class="modal-content">
                     <div class="modal-body p-0">
                       <div class="card bg-secondary shadow border-0">
                         <div class="card-header bg-white pb-5">
-                          
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            (click)="d('Cross click')">
                             <span aria-hidden="true">×</span>
                           </button>
                           <div class="text-muted text-center mb-3">
                             <small>Choose a Date</small>
                           </div>
                           <small class="d-block text-uppercase font-weight-bold mt-15 ml-3"><i
-                            class="ni ni-calendar-grid-58"></i> Request a Meeting Date to Home Owner</small>
-                  
+                              class="ni ni-calendar-grid-58"></i> Request a Meeting Date to Home Owner</small>
+
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                           <div class="text-center text-muted mb-4">
                             <small class="d-block text-uppercase font-weight-bold mb-3"><i
-                              class="ni ni-calendar-grid-58"></i> Select a Date for a Meeting</small>
+                                class="ni ni-calendar-grid-58"></i> Select a Date for a Meeting</small>
                           </div>
                           <form role="form" (ngSubmit)="onSubmit()" [formGroup]="dateForm">
                             <div class="form-group mb-3">
@@ -104,18 +64,20 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="Choose Date" type="date" required formControlName="myDate" (focus)="focus=true" (blur)="focus=false">
+                                <input class="form-control" placeholder="Choose Date" type="date" required
+                                  formControlName="myDate" (focus)="focus=true" (blur)="focus=false">
                               </div>
                             </div>
-                
-                            
+
+
                             <div class="text-center">
                               <button type="submit" class="btn btn-primary my-4">Submit Date</button>
                             </div>
 
                           </form>
                           <div class="col-sm-9">
-                            <small class="text-success ml-3" *ngIf="message">Your Date request is successfully sent to Owner!!</small>
+                            <small class="text-success ml-3" *ngIf="message">Your Date request is successfully sent to
+                              Owner!!</small>
                           </div>
                         </div>
                       </div>
@@ -145,7 +107,43 @@
             </div>
           </div>
           <div class="text-center mt-3">
-            <img src={{home.urlOfImage}} class="img-fluid rounded shadow-lg" style="width: 350px;"><br /><br />
+            <ngb-carousel (click)="open(classic2,  'Notification', '')">
+              <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
+
+              </ng-template>
+
+            </ngb-carousel>
+
+            <ng-template #classic2 let-c="close" let-d="dismiss">
+              <div class="modal-content cl">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="modal-title-notification">{{home.name}}</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="d('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="py-3 text-center">
+                    <ngb-carousel>
+                      <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                        <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 450px;height: 260px;">
+
+                      </ng-template>
+
+                    </ngb-carousel>
+                  </div>
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal"
+                    (click)="c('Close click')">Close</button>
+                </div>
+              </div>
+            </ng-template>
+
+            <br /><br />
             <h3>{{home.name}}
 
             </h3>
