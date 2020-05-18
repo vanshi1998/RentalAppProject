@@ -68,7 +68,7 @@ public class HomeService {
 	public List<Home> findHomeByLocation(String location) {
 		return homeRepository.findByLocation(location);
 	}
-
+	
 	public List<Home> findHomeByOccupancy(String occupancy) {
 		return homeRepository.findByOccupancy(occupancy);
 	}
@@ -76,9 +76,7 @@ public class HomeService {
 	public List<Home> findHomeByFurnished(String furnished) {
 		return homeRepository.findByFurnished(furnished);
 	}
-	
-	
-	
+
 	public HomeOwner addHomeOwner(HomeOwner homeOwner,String email) {
 		HomeOwner homeOwner1=homeOwnerRepository.findByEmail(email);
 		if(homeOwner1==null) {
@@ -171,6 +169,19 @@ public class HomeService {
     	System.out.println("Final updation done"+homeTenant2.getHomesOfInterest());
     }
 
+    @Transactional
+    public void deleteInterestedHomeByHomeId(int homeId)
+    {
+    	List<InterestedHome> intHomes =  interestedHomeRepository.findAll();
+    	for(InterestedHome intHome:intHomes)
+    	{
+    		int id=intHome.getHomeId();
+    		if(id==homeId)
+    		{
+    			interestedHomeRepository.deleteByHomeId(id);
+    		}
+    	}
+    }
 
 	public List<HomeTenant> findAllHomeTenants() {
 		List<HomeTenant> homeTenants =  homeTenantRepository.findAll();

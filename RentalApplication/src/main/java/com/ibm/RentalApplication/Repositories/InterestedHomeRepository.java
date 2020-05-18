@@ -9,4 +9,5 @@ import com.ibm.RentalApplication.Entities.InterestedHome;
 public interface InterestedHomeRepository extends JpaRepository<InterestedHome, Integer>{
 
 	public List<InterestedHome> findByHomeId(int id);
+	public void deleteByHomeId(int homeId);
 }
