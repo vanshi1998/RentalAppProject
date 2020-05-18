@@ -24,7 +24,7 @@
 
   <section class="section section-lg pt-lg-0 mt--200">
 
-    <div class="container">
+    <div class="container jumbotron-fluid">
       <div class="card card-profile shadow mt--200">
         <table class="table">
           <thead>
@@ -33,7 +33,7 @@
               <th scope="col">Phone</th>
               <th scope="col">Email</th>
               <th scope="col">Date</th>
-              <th scope="col"></th>
+              <th scope="col">Status</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -45,21 +45,23 @@
               <td>{{tenant.contactNumber}}</td>
               <td>{{tenant.email}}</td>
               <td>{{meetingDates[i]}}</td>
-              <td class="approve" *ngIf="approve[i]=='Approved'">Approved</td>
+              <td><span class="approve" *ngIf="approve[i]=='Approved'">APPROVED</span><span class="reject"
+                  *ngIf="approve[i]=='Rejected'">REJECTED</span><span class="pending"
+                  *ngIf="approve[i]=='Pending'">PENDING</span></td>
               <td>
                 <button *ngIf="approve[i]=='Pending'" class=" btn btn-success left-align"
                   (click)="updateApprove(tenant.id,i)" [disabled]="iRejects[i] || approve[i]!='Pending'"><i
                     class="fa fa-pencil"></i> Approve</button>
-              </td>
-              <td>
-
                 <button *ngIf="approve[i]=='Pending'" class="btn btn-danger red" (click)="updateReject(tenant.id,i)"
                   [disabled]="iApproves[i] || approve[i]!='Pending'"><i class="fa fa-remove "></i> Reject
                 </button>
-
               </td>
-              <td *ngIf="iApproves[i]">✔️</td>
-              <td *ngIf="iRejects[i]">❌</td>
+
+              <td>
+                <span *ngIf="iApproves[i]">✔️</span>
+                <span *ngIf="iRejects[i]">❌</span>
+              </td>
+
 
             </tr>
 
