@@ -4,3 +4,13 @@
 .img{
     width: 50%;
 }
+
+
+
+ngb-carousel:focus{
+  border: none;
+}
+
+.cl{
+    background-color: aqua;
+}

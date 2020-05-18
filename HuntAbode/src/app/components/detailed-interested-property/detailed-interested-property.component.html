@@ -62,22 +62,41 @@
           <div class="text-center mt-3">
 
             <!--Insert Images here-->
-            <ngb-carousel>
+            <ngb-carousel (click)="open(classic2,  'Notification', '')">
               <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
                 <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
 
               </ng-template>
-              <!--    <ng-template ngbSlide>
-                <img class="img-fluid rounded shadow-lg"
-                  src="https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  style="width: 350px;" alt="Second slide">
-              </ng-template>
-              <ng-template ngbSlide>
-                <img class="img-fluid rounded shadow-lg"
-                  src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  style="width: 350px;" alt="Third slide">
-              </ng-template> -->
+
             </ngb-carousel>
+
+            <ng-template class="cl" #classic2 let-c="close" let-d="dismiss">
+              <div class="modal-content bg-gradient-danger">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="modal-title-notification">{{home.name}}</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="d('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="py-3 text-center">
+                    <ngb-carousel>
+                      <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                        <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 450px;height: 260px;">
+
+                      </ng-template>
+
+                    </ngb-carousel>
+                  </div>
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal"
+                    (click)="c('Close click')">Close</button>
+                </div>
+              </div>
+            </ng-template>
 
 
             <br /><br />
