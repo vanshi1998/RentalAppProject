@@ -86,6 +86,11 @@ export class ViewPropertyOwnerComponent implements OnInit {
         }
       })
 
+      this.rentalService.deleteInterestedHome(id).subscribe((res: any) => {
+        console.log(res);
+        
+      })
+
   }
 
   updateProperty(HomeId: number) {
