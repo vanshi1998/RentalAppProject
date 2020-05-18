@@ -236,8 +236,9 @@
 
                   <input class="form-control" required formControlName="urls" [(ngModel)]="url.url" placeholder="URL of Image"
                     type="text" (focus)="focus=true" (blur)="focus=false">
+                    <button type="button" class="btn btn-danger btn-sm" (click)="removeUrl(i)"> Remove URL - </button>
                 </div>
-                <button type="button" class="btn btn-danger btn-sm" (click)="removeUrl(i)">Remove</button>
+                
 
                 <small class="text-danger ml-3" *ngIf="f.urls.touched && f.urls.invalid">*URL of image is
                   required</small>
