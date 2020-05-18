@@ -54,7 +54,7 @@ export class ViewPropertyComponent implements OnInit {
   }
 
   makkawala() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Makaawala" }]);
+    this.router.navigate(["location-filtered", { email: this.email, location: "Makkawala" }]);
   }
 
   johri() {

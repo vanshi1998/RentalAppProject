@@ -36,6 +36,11 @@ export class RentalService {
     return this.http.delete(baseUrl + 'home/delete/' + id, { observe: 'response' })
   }
 
+  deleteInterestedHome(id:number)
+  {
+    return this.http.delete(baseUrl + 'deleteInterestedHome/homeId/' + id, { observe: 'response' })
+  }
+
   /* For now "any" type has been used, can be updated after creating specific models.  */
 
   addHouseOwner(houseOwner: any, email: string) {
