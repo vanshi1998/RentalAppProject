@@ -36,13 +36,41 @@
                 <div class="card-body py-5">
 
 
-                  <ngb-carousel>
+                  <ngb-carousel (click)="open(classic2,  'Notification', '')">
                     <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
-                      <img src={{im}} class="img-fluid rounded" style="width: 270px;">
+                      <img src={{im}} class="img-fluid rounded" style="width: 350px;" alt="First slide">
 
                     </ng-template>
 
                   </ngb-carousel>
+
+                  <ng-template #classic2 let-c="close" let-d="dismiss">
+                    <div class="modal-content cl">
+                      <div class="modal-header">
+                        <h6 class="modal-title" id="modal-title-notification">{{intHome.name}}</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                          (click)="d('Cross click')">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="py-3 text-center">
+                          <ngb-carousel>
+                            <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                              <img src={{im}} class="img-fluid rounded" style="width: 450px;height: 260px;">
+
+                            </ng-template>
+
+                          </ngb-carousel>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+
+                        <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal"
+                          (click)="c('Close click')">Close</button>
+                      </div>
+                    </div>
+                  </ng-template>
 
                   <h4 class="text-info text-uppercase">{{intHome.name}}</h4>
                   <h6 class="text-primary text-uppercase">{{intHome.location}}</h6>

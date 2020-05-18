@@ -12,9 +12,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BookedPropertyComponent implements OnInit {
 
-  imgs: Array<string> = ["https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"];
-  closeResult: string;
-  constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute) { }
 
   email: string;
   interestedHomes: Array<InterestedHome>;
@@ -23,6 +20,12 @@ export class BookedPropertyComponent implements OnInit {
   requiredApprove: String;
   intHomes: Array<Home> = [];
   id: number;
+  imgs: Array<string> = ["https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"];
+  closeResult: string;
+
+  constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
+
+
   ngOnInit(): void {
 
     //this.email="abcd@gmail.com";
@@ -81,6 +84,39 @@ export class BookedPropertyComponent implements OnInit {
     this.id = this.homeIds[i];
     this.router.navigate(["detailed-interested-property", { id: this.id, approve: this.requiredApprove }]);
   }
+
+  open(content, type, modalDimension) {
+    if (modalDimension === 'sm' && type === 'modal_mini') {
+      this.modalService.open(content, { windowClass: 'modal-mini', size: 'sm', centered: true }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    } else if (modalDimension === '' && type === 'Notification') {
+      this.modalService.open(content, { windowClass: 'modal-danger', centered: true }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    } else {
+      this.modalService.open(content, { centered: true }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
 
 }
 
