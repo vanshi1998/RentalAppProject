@@ -196,6 +196,22 @@ public class HomeService {
 		return tenant.getHomesOfInterest();
 	}
 	
+	public List<Home> findHomeOfInterestedHomes(String email)
+	{
+		List<InterestedHome> intHomes=findInterestedHomeOfTenant(email);
+		List<Home> homes=new LinkedList<>();
+		System.out.println("All interested homes="+intHomes);
+		for(InterestedHome intHome:intHomes)
+		{
+			int id=intHome.getHomeId();
+			Home home=homeRepository.findById(id);
+			homes.add(home);
+			
+		}
+		return homes;
+		
+	}
+	
 	public List<InterestedHome> findAllInterestedHomes() {
 		List<InterestedHome> interestedHomes =  interestedHomeRepository.findAll();
 		System.out.println(interestedHomes);
@@ -205,7 +221,7 @@ public class HomeService {
 	public List<HomeTenant> interestedTenantsOfHome(int homeid)
 	{
 		List<InterestedHome> intHomes4=interestedHomeRepository.findByHomeId(homeid);
-		List<HomeTenant> intTenants=new LinkedList<>();;
+		List<HomeTenant> intTenants=new LinkedList<>();
 		for(InterestedHome intHome :intHomes4)
 		{
 			int tenantId=intHome.getTenantId();
