@@ -25,3 +25,13 @@ h4{
     color: white;
     text-transform: uppercase;
 }
+
+.reject{
+    font-weight: bold;
+    color: rgb(252, 87, 87);
+}
+
+.pending{
+    font-weight: bold;
+    color: rgb(249, 252, 87);
+}
