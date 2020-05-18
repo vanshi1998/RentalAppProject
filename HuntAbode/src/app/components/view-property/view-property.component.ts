@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Home } from 'src/app/models/home';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-view-property',
   templateUrl: './view-property.component.html',
