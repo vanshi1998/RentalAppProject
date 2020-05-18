@@ -57,8 +57,30 @@
               </div>
             </div>
           </div>
+
+
           <div class="text-center mt-3">
-            <img src={{home.urlOfImage}} class="img-fluid rounded shadow-lg" style="width: 350px;"><br /><br />
+
+            <!--Insert Images here-->
+            <ngb-carousel>
+              <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
+
+              </ng-template>
+              <!--    <ng-template ngbSlide>
+                <img class="img-fluid rounded shadow-lg"
+                  src="https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  style="width: 350px;" alt="Second slide">
+              </ng-template>
+              <ng-template ngbSlide>
+                <img class="img-fluid rounded shadow-lg"
+                  src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  style="width: 350px;" alt="Third slide">
+              </ng-template> -->
+            </ngb-carousel>
+
+
+            <br /><br />
             <h3>{{home.name}}
 
             </h3>
