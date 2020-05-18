@@ -55,14 +55,21 @@ getdata()
 
    console.log("All home ids=",this.homeIds);
    
-    this.homeIds.forEach(id => {
+    /* this.homeIds.forEach(id => {
       this.rentalService.fetchPropertyById(id)
   .subscribe((res:Home)=> {
     console.log("result",res);
     this.intHomes.push(res);
     console.log("Home is",this.intHomes);
     });
-   })
+   }) */
+   this.rentalService.fetchHomesOfInterestedHomes(this.email)
+   .subscribe((res:Array<Home>)=> {
+     console.log("result",res);
+    this.intHomes=res;
+     console.log("Homes are",this.intHomes);
+    })
+
 }
 
 loadDetails(i:number)

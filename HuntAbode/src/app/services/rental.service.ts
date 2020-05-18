@@ -117,6 +117,11 @@ export class RentalService {
     return this.http.get(baseUrl + 'tenant/viewInterestedHomes/' + email);
   }
 
+  fetchHomesOfInterestedHomes(email:string)
+  {
+    return this.http.get(baseUrl + 'tenant/viewAllInterestedHomes/' + email);
+  }
+
   fetchAllInterestedHomes() {
     return this.http.get(baseUrl + 'interestedHomes')
   }
