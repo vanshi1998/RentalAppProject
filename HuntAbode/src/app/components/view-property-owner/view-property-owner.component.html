@@ -17,7 +17,7 @@
       <!-- SVG separator -->
       <div class="separator separator-bottom separator-skew">
         <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.o/rg/2000/svg">
           <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
         </svg>
       </div>
@@ -40,7 +40,7 @@
             <div class="col-lg-4" *ngFor="let home of homes">
               <div class="card card-lift--hover shadow border-0">
                 <div class="card-body py-5">
-                  <ngb-carousel (click)="open(classic2,  'Notification', '')">
+                  <ngb-carousel (click)="open(classic,  'Notification', '')">
                     <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
                       <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
 
@@ -48,7 +48,7 @@
 
                   </ngb-carousel>
 
-                  <ng-template #classic2 let-c="close" let-d="dismiss">
+                  <ng-template #classic let-c="close" let-d="dismiss">
                     <div class="modal-content cl">
                       <div class="modal-header">
                         <h6 class="modal-title" id="modal-title-notification">{{home.name}}</h6>
@@ -110,7 +110,7 @@
                       </div>
                       <div class="modal-body">
                         <div class="py-3 text-center">
-                          <img src="./assets/throw.svg">
+                          <img src="./assets/img/throw.svg">
                           <h4 class="heading mt-4">Are you sure you want to delete this property?</h4>
 
                         </div>
