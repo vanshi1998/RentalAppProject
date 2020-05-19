@@ -23,7 +23,7 @@ export class AddPropertyComponent implements OnInit {
     url:''
   }];
   myUrls: Array<string>=[]
-
+ 
 
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
 
@@ -60,7 +60,7 @@ export class AddPropertyComponent implements OnInit {
   }
 
   myHome={
-
+    
   }
 
   
@@ -102,7 +102,7 @@ export class AddPropertyComponent implements OnInit {
    console.log("Object to Send: ", this.myHome)
   //  this.urls=this.homeForm.value.urlOfImage.split(',');
   //  console.log("Urls=", this.urls);
-     this.rentalService.addPropertyCertain(this.homeForm.value,this.email) //update object in this method accordingly
+     this.rentalService.addPropertyCertain(this.myHome,this.email) //update object in this method accordingly
   .subscribe((res:any)=> {
     console.log("result",res); 
     this.resultStatus=res.status;
