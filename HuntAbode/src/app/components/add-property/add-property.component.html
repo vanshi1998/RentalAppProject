@@ -223,7 +223,16 @@
                   required</small>
               </div> -->
 
+              <div *ngIf="notFull">
               <button type="button" class="btn btn-outline-success mb-2" (click)="addUrl()">Add Url +</button>
+              <div *ngIf="isUrlEmpty">
+                <small class="text-danger ml-3">Property without any picture doesn't look cool, add atleast one image!</small>
+              </div>
+              </div>
+
+              <div *ngIf="urls.length==3">
+                <button type="button" class="btn btn-outline-primary mb-2" disabled>Three Images Will Do The Work! </button>
+              </div>
 
               <div class="form-group mb-3" *ngFor="let url of urls; let i=index;">
                 <div class="input-group input-group-alternative">
