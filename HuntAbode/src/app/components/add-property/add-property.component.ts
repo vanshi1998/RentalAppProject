@@ -23,6 +23,10 @@ export class AddPropertyComponent implements OnInit {
     url:''
   }];
   myUrls: Array<string>=[]
+  notFull:boolean=true;
+  myText:string='';
+  isUrlEmpty:boolean=false;
+
  
 
   constructor(private fb: FormBuilder,private rentalService:RentalService,private router: Router, private route: ActivatedRoute) { }
@@ -134,10 +138,22 @@ addUrl() {
     id: this.urls.length + 1,
     url: ''
   });
+  if(this.urls.length==3){
+    this.notFull=false;
+  }
+  else{
+    this.notFull=true;
+  }
+  this.isUrlEmpty=false;
 }
 
 removeUrl(i: number) {
   this.urls.splice(i, 1);
+  this.notFull=true;
+  if(i==0){
+    this.isUrlEmpty=true
+  }
+  
 }
 
 }
