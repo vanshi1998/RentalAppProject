@@ -261,13 +261,48 @@ public class HomeService {
 		}
 	}
 	
-	
-	//explicitly setting ownerid to home (not needed in app)
-	/*@Transactional
-	public void setOwnerId(int homeid, int ownerid)
+	public String getLocationByHomeId(int id)
 	{
-		Home home1=homeRepository.findById(homeid);
-		home1.setOwnerId(ownerid);
-	}*/
+		Home home=findHomeById(id);
+		String location=home.getLocation();
+		return location;
+	}
+	
+	public int getNoOfHomes(String loc)
+	{
+		List<Home> homes=homeRepository.findAll();
+		int count=0;
+		for(Home home:homes)
+		{
+			String location=home.getLocation();
+			if(location.equals(loc))
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int getNoOfTenants(String loc)
+	{
+		List<HomeTenant> tenants=homeTenantRepository.findAll();
+		List<InterestedHome> intHomes=new LinkedList<>();
+		int count2=0;
+		for(HomeTenant tenant:tenants)
+		{
+			intHomes=tenant.getHomesOfInterest();
+			for(InterestedHome intHome:intHomes)
+			{
+				int hid=intHome.getHomeId();
+				String location=getLocationByHomeId(hid);
+				if(location.equals(loc))
+				{
+					System.out.println("in method"+location);
+					count2++;
+				}
+			}
+		}
+		return count2;
+	}
 	
 }

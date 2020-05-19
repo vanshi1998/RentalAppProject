@@ -3,6 +3,7 @@ package com.ibm.RentalApplication.Controllers;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ibm.RentalApplication.RentalInsightsServiceProxy;
+import com.ibm.RentalApplication.RentalStore;
 import com.ibm.RentalApplication.Entities.Home;
 import com.ibm.RentalApplication.Entities.HomeOwner;
 import com.ibm.RentalApplication.Entities.HomeTenant;
@@ -30,6 +34,9 @@ public class OwnerController {
 
 	@Autowired
 	HomeService homeService;
+	
+	@Autowired
+	RentalInsightsServiceProxy proxy;
 	
 	
 	@PutMapping("/home/email/{email}")
@@ -97,7 +104,6 @@ public class OwnerController {
 		return re;
 
 	}
-
 	
 	@PutMapping("/home/updateByOccupancy/{id}/{occupancy}")
 	public ResponseEntity<Void> updateHomeByOccupancy(@PathVariable("id") int id,@PathVariable("occupancy") String occupancy) {
@@ -122,5 +128,26 @@ public class OwnerController {
 		return re;
 
 	}
+	
+	
+	
+	@GetMapping("/insights/location/{location}")
+	public RentalStore getInsights(@PathVariable("location") String location)
+	{
+		int noOfHomes=homeService.getNoOfHomes(location);
+		System.out.println("No of homes of location="+noOfHomes);
+		int noOfTenants=homeService.getNoOfTenants(location);
+		System.out.println("No of tenants of location="+noOfTenants);
+		RentalStore rentalStore=new RentalStore();
+		rentalStore.setLocation(location);
+		rentalStore.setNoOfHomes(noOfHomes);
+		rentalStore.setNoOfTenants(noOfTenants);
+		System.out.println("Rental Store going to MongoDb="+rentalStore);
+		RentalStore rentalStore2=proxy.fetchInsightsDetailByLocation(rentalStore);
+		//RentalStore rentalStore3=proxy.fetchStoreByLocation(location);
+		//System.out.println("Rental Store application has data="+rentalStore3);
+		return rentalStore2;
+	}
+	
 	
 }

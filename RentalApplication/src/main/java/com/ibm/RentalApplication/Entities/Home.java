@@ -1,6 +1,9 @@
 package com.ibm.RentalApplication.Entities;
 
 
+
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +11,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Home {
+public class Home{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -36,8 +39,24 @@ public class Home {
 		
 	}
 	
-	
-	
+	public Home(int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
+			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
+			String urlOfImage) {
+		super();
+		OwnerId = ownerId;
+		this.type = type;
+		this.location = location;
+		this.detailedLocation = detailedLocation;
+		this.rooms = rooms;
+		this.occupancy = occupancy;
+		this.status = status;
+		this.monthlyCost = monthlyCost;
+		this.securityDeposit = securityDeposit;
+		this.furnished = furnished;
+		this.details = details;
+		this.name = name;
+		this.urlOfImage = urlOfImage;
+	}
 
 	public Home(int id, int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
 			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
@@ -58,30 +77,6 @@ public class Home {
 		this.name = name;
 		this.urlOfImage = urlOfImage;
 	}
-
-
-
-
-	public Home(int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
-			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
-			String urlOfImage) {
-		super();
-		OwnerId = ownerId;
-		this.type = type;
-		this.location = location;
-		this.detailedLocation = detailedLocation;
-		this.rooms = rooms;
-		this.occupancy = occupancy;
-		this.status = status;
-		this.monthlyCost = monthlyCost;
-		this.securityDeposit = securityDeposit;
-		this.furnished = furnished;
-		this.details = details;
-		this.name = name;
-		this.urlOfImage = urlOfImage;
-	}
-
-
 
 
 	public int getId() {
@@ -176,21 +171,18 @@ public class Home {
 	}
 
 
+	
+
+
 
 
 	public String getUrlOfImage() {
 		return urlOfImage;
 	}
 
-
-
-
 	public void setUrlOfImage(String urlOfImage) {
 		this.urlOfImage = urlOfImage;
 	}
-
-
-
 
 	@Override
 	public String toString() {
@@ -201,13 +193,23 @@ public class Home {
 				+ "]";
 	}
 
+	
+
+	
+	
+
+	
+
+
+	}
+
+
+
 
 
 
 	
 
-	
-	
-	
-	
-}
+
+
+
