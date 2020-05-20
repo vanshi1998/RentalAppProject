@@ -32,6 +32,7 @@ import { FilterOccupancyComponent } from './components/filter-occupancy/filter-o
 import { FilterTypeComponent } from './components/filter-type/filter-type.component';
 import { FilterFurnishingComponent } from './components/filter-furnishing/filter-furnishing.component';
 import { InsightsComponent } from './components/insights/insights.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { InsightsComponent } from './components/insights/insights.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    ChartsModule
   ],
   exports: [FormsModule],
   providers: [],

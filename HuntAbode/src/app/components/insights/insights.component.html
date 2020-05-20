@@ -40,7 +40,7 @@
                             <div class="card-profile-actions py-4 mt-lg-0">
                                 <h3 class="mb-4 d-flex justify-content-center">Get Info of Tenants & Homes at various
                                     Locations :</h3>
-                                <button type="button" class="btn btn-sm btn-default">Jakhan</button>
+                                <button type="button" class="btn btn-sm btn-default" (click)="fetchData('Jakhan')">Jakhan</button>
                                 <button type="button" class="btn btn-sm btn-primary">Dalanwala</button>
                                 <button type="button" class="btn btn-sm btn-danger">Johri Gaon</button>
                                 <button type="button" class="btn btn-sm btn-info">Makkawala</button>
@@ -67,8 +67,20 @@
                         </div>
                     </div>
 
-                    <div class="card-body px-lg-5 py-lg-5">
-
+                    <div *ngIf="msg" class="card-body px-lg-5 py-lg-5">
+                        <div>
+                            <div style="display: block">
+                              <canvas baseChart
+                              [datasets]="barChartData"
+                             [labels]="barChartLabels"
+                             [options]="barChartOptions"
+                             
+                             [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                               >
+                              </canvas>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
