@@ -15,6 +15,7 @@ export class FilterOccupancyComponent implements OnInit {
   occupancy: string;
   closeResult: string;
   id: number;
+  message:boolean=false;
   constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute, private modalService: NgbModal) {
 
   }
@@ -33,6 +34,10 @@ export class FilterOccupancyComponent implements OnInit {
       .subscribe((res: Array<Home>) => {
         console.log(res);
         this.homes = res;
+        if(this.homes.length==0)
+        {
+          this.message=true;
+        }
       })
   }
 

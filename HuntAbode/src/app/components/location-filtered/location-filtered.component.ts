@@ -16,7 +16,7 @@ export class LocationFilteredComponent implements OnInit {
   location: string;
   id: number;
   closeResult: string;
-
+  message:boolean=false;
   constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute, private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -33,6 +33,10 @@ export class LocationFilteredComponent implements OnInit {
       .subscribe((res: Array<Home>) => {
         console.log(res);
         this.homes = res;
+        if(this.homes.length==0)
+        {
+          this.message=true;
+        }
       })
 
   }
