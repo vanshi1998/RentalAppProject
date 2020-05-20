@@ -14,6 +14,7 @@ export class FilterFurnishingComponent implements OnInit {
   length: boolean = false;
   furnished: string;
   id: number;
+  message: boolean = false;
   constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -29,11 +30,8 @@ export class FilterFurnishingComponent implements OnInit {
       .subscribe((res: Array<Home>) => {
         console.log(res);
         this.homes = res;
-        if (this.homes.length == 0) {
-          this.length = true;
-          console.log(this.length);
-        }
-
+        if (this.homes.length == 0)
+          this.message = true;
       })
   }
 

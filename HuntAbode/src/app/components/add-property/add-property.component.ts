@@ -16,7 +16,6 @@ export class AddPropertyComponent implements OnInit {
   homeForm: FormGroup;
   email: string;
   ownerId: any;
-  myHome: any;
   resultStatus: number;
   message: boolean = false;
   public urls: any[] = [{
@@ -24,6 +23,10 @@ export class AddPropertyComponent implements OnInit {
     url: ''
   }];
   myUrls: Array<string> = []
+  notFull: boolean = true;
+  myText: string = '';
+  isUrlEmpty: boolean = false;
+
 
 
   constructor(private fb: FormBuilder, private rentalService: RentalService, private router: Router, private route: ActivatedRoute) { }
@@ -60,9 +63,9 @@ export class AddPropertyComponent implements OnInit {
 
   }
 
-  /* myHome = {
+  myHome = {
 
-  } */
+  }
 
 
 
@@ -132,10 +135,22 @@ export class AddPropertyComponent implements OnInit {
       id: this.urls.length + 1,
       url: ''
     });
+    if (this.urls.length == 3) {
+      this.notFull = false;
+    }
+    else {
+      this.notFull = true;
+    }
+    this.isUrlEmpty = false;
   }
 
   removeUrl(i: number) {
     this.urls.splice(i, 1);
+    this.notFull = true;
+    if (i == 0) {
+      this.isUrlEmpty = true
+    }
+
   }
 
 }

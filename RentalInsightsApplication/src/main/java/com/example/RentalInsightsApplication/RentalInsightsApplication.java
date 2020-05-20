@@ -1,17 +1,15 @@
-package com.ibm.RentalApplication;
+package com.example.RentalInsightsApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients("com.ibm.RentalApplication")
-public class RentalApplication {
+public class RentalInsightsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RentalApplication.class, args);
+		SpringApplication.run(RentalInsightsApplication.class, args);
 	}
 
 }

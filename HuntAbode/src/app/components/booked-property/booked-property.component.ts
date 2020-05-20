@@ -20,7 +20,7 @@ export class BookedPropertyComponent implements OnInit {
   requiredApprove: String;
   intHomes: Array<Home> = [];
   id: number;
-  imgs: Array<string> = ["https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"];
+  message:boolean=false;
   closeResult: string;
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
@@ -44,6 +44,8 @@ export class BookedPropertyComponent implements OnInit {
         console.log("result", res);
         this.interestedHomes = res;
         console.log("Interested Homes are", this.interestedHomes);
+        if(this.interestedHomes.length==0)
+        this.message=true;
       })
 
 
