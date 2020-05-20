@@ -82,14 +82,11 @@
               <div class="card-body py-5">
                 <div class="img">
                   <ngb-carousel (click)="open(classic,  'Notification', '')">
-                    <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+
+                    <ng-template *ngFor="let im of home.urlOfImage; let index=i;" ngbSlide>
                       <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
-
-                      <ngb-carousel (click)="open(classic,  'Notification', '')">
-                        <ng-template *ngFor="let im of home.urlOfImage; let index=i;" ngbSlide>
-                          <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
-
-                      </ngb-carousel>
+                    </ng-template>
+                  </ngb-carousel>
                 </div>
 
 
