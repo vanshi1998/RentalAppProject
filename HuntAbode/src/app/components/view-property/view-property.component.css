@@ -16,20 +16,20 @@
     text-align: center;
 }
 
-.badge-pill0{
+.badge-pill0,.badge-pill6{
     color:#ED4C67;
 }
 
 
-.badge-pill1{
+.badge-pill1,.badge-pill7{
     color:rgb(66, 66, 184);
 }
 
-.badge-pill2{
+.badge-pill2,.badge-pill8{
     color:#4b4b4b;
 }
 
-.badge-pill3{
+.badge-pill3,.badge-pill5{
     color: green;
 }
 

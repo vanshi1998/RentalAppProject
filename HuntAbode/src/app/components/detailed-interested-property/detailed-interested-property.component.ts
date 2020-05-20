@@ -15,7 +15,7 @@ export class DetailedInterestedPropertyComponent implements OnInit {
   id: any;
   approve: string;
   home: Home;
-  imgs: Array<string> = ["https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"];
+
 
   constructor(private rentalService: RentalService, private route: ActivatedRoute, private modalService: NgbModal) { }
 

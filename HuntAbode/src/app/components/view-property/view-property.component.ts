@@ -98,14 +98,18 @@ export class ViewPropertyComponent implements OnInit {
 
 
   occupancy(ocupancy: string) {
-
-    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Sharing" }]);
+    this.ocupancy = ocupancy;
+    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: this.occupancy }]);
   }
 
   homeType(type: string) {
     this.type = type;
     this.router.navigate(["type-filtered", { email: this.email, type: this.type }]);
 
+  }
+
+  home() {
+    this.router.navigate(["home"]);
   }
 
 

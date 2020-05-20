@@ -21,6 +21,14 @@
         (click)="locations('Makkawala')">Makkawala</span>
       <span class="badge badge-pill badge-pill4 badge-neutral text-uppercase ml-1 loc"
         (click)="locations('Malsi')">Malsi</span>
+      <span class="badge badge-pill badge-pill5 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Vasant Vihar')">Vasant Vihar</span>
+      <span class="badge badge-pill badge-pill6 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Dalanwala')">Dalanwala</span>
+      <span class="badge badge-pill badge-pill7 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Chakrata')">Chakrata</span>
+      <span class="badge badge-pill badge-pill8 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Race Course')">Race Course</span>
     </div>
 
 
@@ -42,16 +50,19 @@
     <div class="col-lg-6">
 
       <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Occupancy</h3>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc sin" (click)="single()">Single</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc sh" (click)="sharing()">Sharing</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc sin"
+        (click)="occupancy('Single')">Single</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 loc sh"
+        (click)="occupancy('Sharing')">Sharing</span>
     </div>
 
     <div class="col-lg-6">
 
       <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Home-Type</h3>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 fl loc" (click)="flat()">Flat</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 pg loc" (click)="pg()">PG</span>
-      <span class="badge badge-pill badge-neutral text-uppercase ml-1 bn loc" (click)="bangalow()">Bungalow</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 fl loc" (click)="homeType('Flat')">Flat</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 pg loc" (click)="homeType('PG')">PG</span>
+      <span class="badge badge-pill badge-neutral text-uppercase ml-1 bn loc"
+        (click)="homeType('Bungalow')">Bungalow</span>
 
     </div>
 
@@ -71,6 +82,8 @@
   <div class="container">
     <div class="btn btn-danger" (click)="interestHomes()">❤️ View
       Interested Homes</div>
+    <div class="btn btn-info ml-4" (click)="home()">Sign out <i class="fa fa-sign-out ml-2" aria-hidden="true"></i>
+    </div>
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="row row-grid">
