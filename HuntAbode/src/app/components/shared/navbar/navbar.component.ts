@@ -7,12 +7,22 @@ import { Location, PopStateEvent } from '@angular/common';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
+
+/*test-1-date  */
+
+
 export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
 
+
+    public now: Date = new Date();
+
     constructor(public location: Location, private router: Router) {
+        setInterval(() => {
+            this.now = new Date();
+          }, 1);
     }
 
     ngOnInit() {
