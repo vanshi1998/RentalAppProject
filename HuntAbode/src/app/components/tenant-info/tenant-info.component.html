@@ -28,7 +28,10 @@
     <div class="container jumbotron-fluid">
       
       <div class="card card-profile shadow mt--200">
-        <table class="table">
+        <div *ngIf="message" class="alert alert-warning mt-3" role="alert">
+          <strong>Info!</strong> No Customers Found On this Home!
+          </div> 
+        <table *ngIf="!message" class="table">
           <thead>
             <tr>
               <th scope="col">Name</th>

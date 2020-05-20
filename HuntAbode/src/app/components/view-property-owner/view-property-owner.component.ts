@@ -17,6 +17,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
   showMessage: boolean = false;
   closeResult: string;
   imgs: Array<string> = [];
+  message:boolean=false;
 
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
@@ -35,6 +36,10 @@ export class ViewPropertyOwnerComponent implements OnInit {
       .subscribe((res: Array<any>) => {
         console.log(res);
         this.homes = res;
+        if(this.homes.length==0)
+        {
+          this.message=true;
+        }
 
       })
   }

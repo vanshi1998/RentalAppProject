@@ -22,6 +22,7 @@ export class TenantInfoComponent implements OnInit {
   iApproves:Array<boolean>=[];
   iRejects:Array<boolean>=[];
   approve:Array<any>=[];
+  message:boolean=false;
   
   constructor(private rentalService: RentalService,private router: Router, private route: ActivatedRoute) {      }
 
@@ -41,6 +42,10 @@ export class TenantInfoComponent implements OnInit {
   .subscribe((res:Array<HomeTenant>)=> {
     console.log("Result",res);       
     this.tenants = res;
+    if(this.tenants.length==0)
+    {
+      this.message=true;
+    }
     
   })   
 
