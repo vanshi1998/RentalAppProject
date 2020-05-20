@@ -31,6 +31,7 @@ import { LocationFilteredComponent } from './components/location-filtered/locati
 import { FilterOccupancyComponent } from './components/filter-occupancy/filter-occupancy.component';
 import { FilterTypeComponent } from './components/filter-type/filter-type.component';
 import { FilterFurnishingComponent } from './components/filter-furnishing/filter-furnishing.component';
+import { InsightsComponent } from './components/insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { FilterFurnishingComponent } from './components/filter-furnishing/filter
     LocationFilteredComponent,
     FilterOccupancyComponent,
     FilterTypeComponent,
-    FilterFurnishingComponent
+    FilterFurnishingComponent,
+    InsightsComponent
 
   ],
   imports: [

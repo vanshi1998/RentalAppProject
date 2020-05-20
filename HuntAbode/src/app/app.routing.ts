@@ -23,6 +23,7 @@ import { TenantInfoComponent } from './components/tenant-info/tenant-info.compon
 import { FilterOccupancyComponent } from './components/filter-occupancy/filter-occupancy.component';
 import { FilterTypeComponent } from './components/filter-type/filter-type.component';
 import { FilterFurnishingComponent } from './components/filter-furnishing/filter-furnishing.component';
+import { InsightsComponent } from './components/insights/insights.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'type-filtered', component: FilterTypeComponent },
   { path: 'occupancy-filtered', component: FilterOccupancyComponent },
   { path: 'showDetail', component: ViewDetailPropertyComponent },
+  { path: 'insights', component: InsightsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

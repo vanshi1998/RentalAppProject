@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     constructor(public location: Location, private router: Router) {
         setInterval(() => {
             this.now = new Date();
-          }, 1);
+        }, 1);
     }
 
     ngOnInit() {
@@ -80,5 +80,8 @@ export class NavbarComponent implements OnInit {
 
     aboutComponent() {
         this.router.navigate(["landing"]);
+    }
+    insightsComponent() {
+        this.router.navigate(["insights"]);
     }
 }
