@@ -1,6 +1,8 @@
 package com.ibm.RentalApplication.Entities;
 
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +27,7 @@ public class Home {
 	String furnished;
 	String details;
 	String name;
-	String urlOfImage;
+	String[] urlOfImage;
 	
 	//@OneToMany(cascade=CascadeType.ALL)
 	//List<HomeTenant> interestedTenants;
@@ -41,7 +43,7 @@ public class Home {
 
 	public Home(int id, int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
 			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
-			String urlOfImage) {
+			String[] urlOfImage) {
 		super();
 		this.id = id;
 		OwnerId = ownerId;
@@ -64,7 +66,7 @@ public class Home {
 
 	public Home(int ownerId, String type, String location, String detailedLocation, int rooms, String occupancy,
 			String status, double monthlyCost, double securityDeposit, String furnished, String details, String name,
-			String urlOfImage) {
+			String[] urlOfImage) {
 		super();
 		OwnerId = ownerId;
 		this.type = type;
@@ -178,14 +180,14 @@ public class Home {
 
 
 
-	public String getUrlOfImage() {
+	public String[] getUrlOfImage() {
 		return urlOfImage;
 	}
 
 
 
 
-	public void setUrlOfImage(String urlOfImage) {
+	public void setUrlOfImage(String[] urlOfImage) {
 		this.urlOfImage = urlOfImage;
 	}
 
@@ -197,10 +199,14 @@ public class Home {
 		return "Home [id=" + id + ", OwnerId=" + OwnerId + ", type=" + type + ", location=" + location
 				+ ", detailedLocation=" + detailedLocation + ", rooms=" + rooms + ", occupancy=" + occupancy
 				+ ", status=" + status + ", monthlyCost=" + monthlyCost + ", securityDeposit=" + securityDeposit
-				+ ", furnished=" + furnished + ", details=" + details + ", name=" + name + ", urlOfImage=" + urlOfImage
-				+ "]";
+				+ ", furnished=" + furnished + ", details=" + details + ", name=" + name + ", urlOfImage="
+				+ Arrays.toString(urlOfImage) + "]";
 	}
 
+
+
+
+	
 
 
 

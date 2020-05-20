@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FilterFurnishingComponent implements OnInit {
   homes: Array<Home> = []
   email: string;
+  length: boolean = false;
   furnished: string;
   id: number;
   constructor(private rentalService: RentalService, private router: Router, private route: ActivatedRoute) { }
@@ -28,8 +29,15 @@ export class FilterFurnishingComponent implements OnInit {
       .subscribe((res: Array<Home>) => {
         console.log(res);
         this.homes = res;
+        if (this.homes.length == 0) {
+          this.length = true;
+          console.log(this.length);
+        }
+
       })
   }
+
+
   showDetails(homeId: number) {
     console.log("detail of home");
     this.id = homeId;
@@ -44,4 +52,6 @@ export class FilterFurnishingComponent implements OnInit {
   back() {
     this.router.navigate(["view-property", { email: this.email }]);
   }
+
+
 }

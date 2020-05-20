@@ -72,3 +72,7 @@ color: #82589F;
 .cl{
     background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
 }
+
+ngb-carousel:active{
+    border:1px solid white !important;
+}
