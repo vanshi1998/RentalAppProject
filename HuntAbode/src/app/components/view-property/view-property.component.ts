@@ -15,7 +15,11 @@ export class ViewPropertyComponent implements OnInit {
   homes: Array<Home> = []
   imgs: Array<string> = ["https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"];
   email: string;
+  location: string;
+  furnished: string;
   id: number;
+  ocupancy: string;
+  type: string;
   closeResult: string;
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
@@ -80,53 +84,28 @@ export class ViewPropertyComponent implements OnInit {
     this.router.navigate(["booked-property", { email: this.email }]);
   }
 
-  jakhan() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Jakhan" }]);
+  locations(area: string) {
+    this.location = area;
+    this.router.navigate(["location-filtered", { email: this.email, location: this.location }]);
   }
 
-  rajpur() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Rajpur Road" }]);
+
+
+  furnishing(furnish: string) {
+    this.furnished = furnish;
+    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: this.furnished }]);
   }
 
-  makkawala() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Makkawala" }]);
-  }
 
-  johri() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Johri Gaon" }]);
-  }
+  occupancy(ocupancy: string) {
 
-  malsi() {
-    this.router.navigate(["location-filtered", { email: this.email, location: "Malsi" }]);
-  }
-
-  semiFurnished() {
-    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Semi-Furnished" }]);
-  }
-
-  furnished() {
-    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Fully-Furnished" }]);
-  }
-  unfurnished() {
-    this.router.navigate(["furnishing-filtered", { email: this.email, furnished: "Unfurnished" }]);
-
-  }
-  single() {
-    this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Single" }]);
-
-  }
-  sharing() {
     this.router.navigate(["occupancy-filtered", { email: this.email, occupancy: "Sharing" }]);
   }
-  flat() {
-    this.router.navigate(["type-filtered", { email: this.email, type: "Flat" }]);
 
-  }
-  pg() {
-    this.router.navigate(["type-filtered", { email: this.email, type: "PG" }]);
-  }
-  bangalow() {
-    this.router.navigate(["type-filtered", { email: this.email, type: "Bungalow" }]);
+  homeType(type: string) {
+    this.type = type;
+    this.router.navigate(["type-filtered", { email: this.email, type: this.type }]);
+
   }
 
 

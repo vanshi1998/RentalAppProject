@@ -85,6 +85,10 @@
                       <option value="Johri Gaon">Johri Gaon</option>
                       <option value="Makkawala">Makkawala</option>
                       <option value="Malsi">Malsi</option>
+                      <option value="Race Course">Race Course</option>
+                      <option value="Dalan Wala">Dalan Wala</option>
+                      <option value="Chakrata">Chakrata</option>
+                      <option value="Vasant Vihar">Vasant Vihar</option>
                     </select>
 
                   </div>
@@ -208,8 +212,8 @@
                   Deposit Amount is required</small>
               </div>
 
-              
-              
+
+
               <!-- <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -224,14 +228,16 @@
               </div> -->
 
               <div *ngIf="notFull">
-              <button type="button" class="btn btn-outline-success mb-2" (click)="addUrl()">Add Url +</button>
-              <div *ngIf="isUrlEmpty">
-                <small class="text-danger ml-3">Property without any picture doesn't look cool, add atleast one image!</small>
-              </div>
+                <button type="button" class="btn btn-outline-success mb-2" (click)="addUrl()">Add Url +</button>
+                <div *ngIf="isUrlEmpty">
+                  <small class="text-danger ml-3">Property without any picture doesn't look cool, add atleast one
+                    image!</small>
+                </div>
               </div>
 
               <div *ngIf="urls.length==3">
-                <button type="button" class="btn btn-outline-primary mb-2" disabled>Three Images Will Do The Work! </button>
+                <button type="button" class="btn btn-outline-primary mb-2" disabled>Three Images Will Do The Work!
+                </button>
               </div>
 
               <div class="form-group mb-3" *ngFor="let url of urls; let i=index;">
@@ -240,14 +246,14 @@
                     <span class="input-group-text">URL {{i+1}} 📷</span>
                   </div>
 
-                  
- 
 
-                  <input class="form-control" required formControlName="urls" [(ngModel)]="url.url" placeholder="URL of Image"
-                    type="text" (focus)="focus=true" (blur)="focus=false">
-                    <button type="button" class="btn btn-danger btn-sm" (click)="removeUrl(i)"> Remove URL - </button>
+
+
+                  <input class="form-control" required formControlName="urls" [(ngModel)]="url.url"
+                    placeholder="URL of Image" type="text" (focus)="focus=true" (blur)="focus=false">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeUrl(i)"> Remove URL - </button>
                 </div>
-                
+
 
                 <small class="text-danger ml-3" *ngIf="f.urls.touched && f.urls.invalid">*URL of image is
                   required</small>

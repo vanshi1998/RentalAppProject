@@ -9,14 +9,18 @@
     <div class="col-lg-6">
 
       <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Location</h3>
-      <span class="badge badge-pill badge-pill0 badge-neutral text-uppercase ml-1 loc" (click)="jakhan()">Jakhan</span>
-      <span class="badge badge-pill badge-pill1 badge-neutral text-uppercase ml-1 loc" (click)="rajpur()">Rajpur
+      <span class="badge badge-pill badge-pill0 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Jakhan')">Jakhan</span>
+      <span class="badge badge-pill badge-pill1 badge-neutral text-uppercase ml-1 loc" (click)="locations('Rajpur
+      Road')">Rajpur
         Road</span>
-      <span class="badge badge-pill badge-pill2 badge-neutral text-uppercase ml-1 loc" (click)="johri()">Johri
+      <span class="badge badge-pill badge-pill2 badge-neutral text-uppercase ml-1 loc" (click)="locations('Johri
+      Gaon')">Johri
         Gaon</span>
       <span class="badge badge-pill badge-pill3 badge-neutral text-uppercase ml-1 loc"
-        (click)="makkawala()">Makkawala</span>
-      <span class="badge badge-pill badge-pill4 badge-neutral text-uppercase ml-1 loc" (click)="malsi()">Malsi</span>
+        (click)="locations('Makkawala')">Makkawala</span>
+      <span class="badge badge-pill badge-pill4 badge-neutral text-uppercase ml-1 loc"
+        (click)="locations('Malsi')">Malsi</span>
     </div>
 
 
@@ -25,10 +29,11 @@
 
       <h3 class="h6 text-neutral font-weight-bold mb-2 ">Search By :Furnishing</h3>
       <span class="badge badge-pill sm badge-neutral text-uppercase ml-1 loc"
-        (click)="semiFurnished()">Semi-Furnished</span>
+        (click)="furnishing('Semi-Furnished')">Semi-Furnished</span>
       <span class="badge badge-pill badge-neutral fd text-uppercase ml-1 loc"
-        (click)="furnished()">Fully-Furnished</span>
-      <span class="badge badge-pill badge-neutral ff text-uppercase ml-1 loc" (click)="unfurnished()">Unfurnished</span>
+        (click)="furnishing('Fully-Furnished')">Fully-Furnished</span>
+      <span class="badge badge-pill badge-neutral ff text-uppercase ml-1 loc"
+        (click)="furnishing('Unfurnished')">Unfurnished</span>
 
     </div>
   </div>
@@ -75,14 +80,18 @@
           <div class="col-lg-4" *ngFor="let home of homes">
             <div class="card card-lift--hover shadow border-0">
               <div class="card-body py-5">
+                <div class="img">
+                  <ngb-carousel (click)="open(classic,  'Notification', '')">
+                    <ng-template *ngFor="let im of imgs; let index=i;" ngbSlide>
+                      <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
 
-                <ngb-carousel (click)="open(classic,  'Notification', '')">
-                  <ng-template *ngFor="let im of home.urlOfImage; let index=i;" ngbSlide>
-                    <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
+                      <ngb-carousel (click)="open(classic,  'Notification', '')">
+                        <ng-template *ngFor="let im of home.urlOfImage; let index=i;" ngbSlide>
+                          <img src={{im}} class="img-fluid rounded shadow-lg" style="width: 350px;" alt="First slide">
 
-                  </ng-template>
+                      </ngb-carousel>
+                </div>
 
-                </ngb-carousel>
 
                 <ng-template #classic let-c="close" let-d="dismiss">
                   <div class="modal-content cl">
