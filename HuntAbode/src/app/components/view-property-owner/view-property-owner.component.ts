@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Home } from 'src/app/models/home';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HomeTenant } from 'src/app/models/home-tenant';
 
 @Component({
   selector: 'app-view-property-owner',
@@ -18,7 +19,9 @@ export class ViewPropertyOwnerComponent implements OnInit {
   closeResult: string;
   imgs: Array<string> = [];
   message:boolean=false;
-
+  msg:boolean=false;
+  tenants:Array<HomeTenant>;
+  model:string="classic3";
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
 
@@ -45,7 +48,34 @@ export class ViewPropertyOwnerComponent implements OnInit {
   }
 
   manageComponents(homeId: number) {
+    this.rentalService.fetchInterestedTenants(homeId)
+  .subscribe((res:Array<HomeTenant>)=> {
+    console.log("Result",res);       
+    this.tenants = res;
+    console.log("interested tenants are=",this.tenants);
+    console.log("Length of tenants=",this.tenants.length);
+
+    setTimeout(() => { this.getdata(homeId); }, 1000);
+   
+    
+  }) 
+  return this.msg;  
+  
+  }
+
+  getdata(homeId:number)
+  {
+    if(this.tenants.length==0)
+    {
+      this.msg=true;
+      console.log("msg=",this.msg);
+      
+    }
+    if(this.msg==false)
+    {
+      console.log("Message in navigation=",this.msg);
     this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
+    }
   }
 
   open(content, type, modalDimension) {
