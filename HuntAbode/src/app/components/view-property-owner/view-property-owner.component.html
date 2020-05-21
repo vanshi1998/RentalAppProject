@@ -25,13 +25,7 @@
     <!-- 1st Hero Variation -->
   </div>
 
-
-
-
-
-
-
-  <section class="section section-lg pt-lg-0 mt--200">
+<section class="section section-lg pt-lg-0 mt--200">
     <div class="container">
       <h2 *ngIf="!message" style="text-align: center; color: #ffffff;">My Properties:</h2><br>
       <div class="row justify-content-center">
@@ -129,9 +123,13 @@
 
 
                   <a href="javascript:void(0)" class="btn btn-info mt-3" placement="bottom" ngbTooltip="Manage Customer"
-                    (click)="manageComponents(home.id);msg==true && open(classic3,  'Notification', '');"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                    (click)="manageComponents(home.id);msg==true && open(classic3,  'Notification', '')"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
 
-                     <ng-template #classic3 let-c="close" let-d="dismiss">
+                    <!-- <div *ngIf="msg" ngbPopover="This is a very beautiful popover, show some love.">Popover on top</div> -->
+
+                    <!-- <button type="button" class="btn btn-default" placement="top"   ngbPopover="This is a very beautiful popover, show some love.">     Popover on top   </button> -->
+
+                      <ng-template #classic3 let-c="close" let-d="dismiss">
                       <div class="modal-content bg-gradient-danger">
                         <div class="modal-header">
                           <h6 class="modal-title" id="modal-title-notification">Tenants Info
@@ -154,7 +152,7 @@
                             (click)="c('Close click')">Close</button>
                         </div>
                       </div>
-                    </ng-template>
+                    </ng-template> 
 
                 </div>
               </div>

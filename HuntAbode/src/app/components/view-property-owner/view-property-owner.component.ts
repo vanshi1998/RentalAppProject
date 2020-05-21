@@ -21,7 +21,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
   message:boolean=false;
   msg:boolean=false;
   tenants:Array<HomeTenant>;
-  model:string="classic3";
+ /*  model:string="classic3"; */
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
 
@@ -69,6 +69,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
     {
       this.msg=true;
       console.log("msg=",this.msg);
+      //alert("No customers found");
       
     }
     if(this.msg==false)
