@@ -18,10 +18,10 @@ export class ViewPropertyOwnerComponent implements OnInit {
   showMessage: boolean = false;
   closeResult: string;
   imgs: Array<string> = [];
-  message:boolean=false;
-  msg:boolean=false;
-  tenants:Array<HomeTenant>;
-  model:string="classic3";
+  message: boolean = false;
+  msg: boolean = false;
+  tenants: Array<HomeTenant>;
+  model: string = "classic3";
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
 
@@ -39,9 +39,8 @@ export class ViewPropertyOwnerComponent implements OnInit {
       .subscribe((res: Array<any>) => {
         console.log(res);
         this.homes = res;
-        if(this.homes.length==0)
-        {
-          this.message=true;
+        if (this.homes.length == 0) {
+          this.message = true;
         }
 
       })
@@ -49,32 +48,31 @@ export class ViewPropertyOwnerComponent implements OnInit {
 
   manageComponents(homeId: number) {
     this.rentalService.fetchInterestedTenants(homeId)
-  .subscribe((res:Array<HomeTenant>)=> {
-    console.log("Result",res);       
-    this.tenants = res;
-    console.log("interested tenants are=",this.tenants);
-    console.log("Length of tenants=",this.tenants.length);
+      .subscribe((res: Array<HomeTenant>) => {
+        console.log("Result", res);
+        this.tenants = res;
+        this.msg = false;
+        console.log("interested tenants are=", this.tenants);
+        console.log("Length of tenants=", this.tenants.length);
 
-    setTimeout(() => { this.getdata(homeId); }, 1000);
-   
-    
-  }) 
-  return this.msg;  
-  
+        setTimeout(() => { this.getdata(homeId); }, 1000);
+
+
+      })
+    return this.msg;
+
   }
 
-  getdata(homeId:number)
-  {
-    if(this.tenants.length==0)
-    {
-      this.msg=true;
-      console.log("msg=",this.msg);
-      
+  getdata(homeId: number) {
+    if (this.tenants.length == 0) {
+      this.msg = true;
+      console.log("msg=", this.msg);
+
     }
-    if(this.msg==false)
-    {
-      console.log("Message in navigation=",this.msg);
-    this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
+    if (this.msg == false) {
+      console.log("msg=", this.msg);
+      console.log("Message in navigation=", this.msg);
+      this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
     }
   }
 
