@@ -48,7 +48,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
   }
 
   manageComponents(homeId: number) {
-    this.rentalService.fetchInterestedTenants(homeId)
+    /* this.rentalService.fetchInterestedTenants(homeId)
   .subscribe((res:Array<HomeTenant>)=> {
     console.log("Result",res);       
     this.tenants = res;
@@ -59,11 +59,12 @@ export class ViewPropertyOwnerComponent implements OnInit {
    
     
   }) 
-  return this.msg;  
-  
+ 
+   */
+  this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
   }
 
-  getdata(homeId:number)
+  /* getdata(homeId:number)
   {
     if(this.tenants.length==0)
     {
@@ -77,7 +78,7 @@ export class ViewPropertyOwnerComponent implements OnInit {
       console.log("Message in navigation=",this.msg);
     this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
     }
-  }
+  } */
 
   open(content, type, modalDimension) {
     if (modalDimension === 'sm' && type === 'modal_mini') {
