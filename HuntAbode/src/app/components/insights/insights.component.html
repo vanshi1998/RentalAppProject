@@ -40,15 +40,24 @@
                             <div class="card-profile-actions py-4 mt-lg-0">
                                 <h3 class="mb-4 d-flex justify-content-center">Get Info of Tenants & Homes at various
                                     Locations :</h3>
-                                <button type="button" class="btn btn-sm btn-default" (click)="fetchData('Jakhan')">Jakhan</button>
-                                <button type="button" class="btn btn-sm btn-primary">Dalanwala</button>
-                                <button type="button" class="btn btn-sm btn-danger">Johri Gaon</button>
-                                <button type="button" class="btn btn-sm btn-info">Makkawala</button>
-                                <button type="button" class="btn btn-sm btn-success">Rajpur Road</button>
-                                <button type="button" class="btn btn-sm btn-danger">Vasant Vihar</button>
-                                <button type="button" class="btn btn-sm btn-warning">Race Course</button>
-                                <button type="button" class="btn btn-sm btn-primary">Malsi</button>
-                                <button type="button" class="btn btn-sm btn-danger">Chakrata</button>
+                                <button type="button" class="btn btn-sm btn-default"
+                                    (click)="fetchData('Jakhan')">Jakhan</button>
+                                <button type="button" class="btn btn-sm btn-primary"
+                                    (click)="fetchData('Dalanwala')">Dalanwala</button>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                    (click)="fetchData('Johri Gaon')">Johri Gaon</button>
+                                <button type="button" class="btn btn-sm btn-info"
+                                    (click)="fetchData('Makkawala')">Makkawala</button>
+                                <button type="button" class="btn btn-sm btn-success"
+                                    (click)="fetchData('Rajpur Road')">Rajpur Road</button>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                    (click)="fetchData('Vasant Vihar')">Vasant Vihar</button>
+                                <button type="button" class="btn btn-sm btn-warning"
+                                    (click)="fetchData('Race Course')">Race Course</button>
+                                <button type="button" class="btn btn-sm btn-primary"
+                                    (click)="fetchData('Malsi')">Malsi</button>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                    (click)="fetchData('Chakrata')">Chakrata</button>
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-1">
@@ -70,17 +79,12 @@
                     <div *ngIf="msg" class="card-body px-lg-5 py-lg-5">
                         <div>
                             <div style="display: block">
-                              <canvas baseChart
-                              [datasets]="barChartData"
-                             [labels]="barChartLabels"
-                             [options]="barChartOptions"
-                             
-                             [legend]="barChartLegend"
-                            [chartType]="barChartType">
-                               >
-                              </canvas>
+                                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                    [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+                                    >
+                                </canvas>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
