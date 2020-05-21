@@ -19,15 +19,15 @@ export class ViewPropertyOwnerComponent implements OnInit {
   closeResult: string;
   imgs: Array<string> = [];
   message: boolean = false;
-  msg: boolean = false;
+  msg: Array<boolean>=[];
   tenants: Array<HomeTenant>;
-  model: string = "classic3";
+  hId:number;
 
   constructor(private rentalService: RentalService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     console.log('check1!');
-
+    
     this.route.paramMap.subscribe(params => {
 
       console.log('***', params.get('email'));
@@ -42,36 +42,65 @@ export class ViewPropertyOwnerComponent implements OnInit {
         if (this.homes.length == 0) {
           this.message = true;
         }
+        for(let i=0;i<this.homes.length;i++)
+          {
+            this.msg[i]=false;
+          }
+          console.log("message initially=",this.msg);
+      });
 
-      })
+      
+     setTimeout(() => { this.check(); }, 3000);
   }
 
-  manageComponents(homeId: number) {
+  check()
+  {
+    console.log("homes are=",this.homes);
+        this.homes.forEach((home,index) => {
+          this.hId=home.id;
+          this.rentalService.fetchInterestedTenants(this.hId)
+      .subscribe((res: Array<HomeTenant>) => {
+        this.tenants = res;
+        if(this.tenants.length==0)
+        this.msg[index]=true;
+        
+          })
+     })
+     setTimeout(() => { this.check2(); }, 2000);
+  }
+
+  check2()
+  {
+    console.log("message after change=",this.msg);
+  }
+
+  manageComponents(homeId: number,i:number) {
+    
     this.rentalService.fetchInterestedTenants(homeId)
       .subscribe((res: Array<HomeTenant>) => {
         console.log("Result", res);
         this.tenants = res;
-        this.msg = false;
+        
         console.log("interested tenants are=", this.tenants);
         console.log("Length of tenants=", this.tenants.length);
 
-        setTimeout(() => { this.getdata(homeId); }, 1000);
+        setTimeout(() => { this.getdata(homeId,i); }, 1000);
 
 
       })
-    return this.msg;
+    
 
   }
 
-  getdata(homeId: number) {
+  getdata(homeId: number,i:number) {
     if (this.tenants.length == 0) {
-      this.msg = true;
-      console.log("msg=", this.msg);
+      this.msg[i] = true;
+      console.log("msg=", this.msg[i]);
 
     }
-    if (this.msg == false) {
+    if (this.msg[i] == false) {
       console.log("msg=", this.msg);
-      console.log("Message in navigation=", this.msg);
+      console.log("Message in navigation=", this.msg[i]);
       this.router.navigate(["tenant-info", { id: homeId, email: this.email }]);
     }
   }
