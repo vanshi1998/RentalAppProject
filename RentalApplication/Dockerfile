@@ -9,7 +9,7 @@ MAINTAINER Vanshika Agrawal <vanshikaagrawal1998@gmail.com>
 VOLUME /tmp
 
 # Make port 8080 available to the world outside this container
-EXPOSE 8000
+EXPOSE 8001
 
 # The application's jar file
 ARG JAR_FILE=target/RentalApplication-0.0.1-SNAPSHOT.jar
